@@ -9,8 +9,8 @@ struct Headline: Codable {
     let effectiveDate: Date
     let effectiveEpochDate, severity: Int
     let text, category: String
-    let endDate: Date
-    let endEpochDate: Int
+    let endDate: Date?
+    let endEpochDate: Int?
     let mobileLink, link: String
 
     enum CodingKeys: String, CodingKey {

@@ -8,7 +8,12 @@ import Foundation
 struct DailyForecastElement: Codable {
     let date: Date
     let epochDate: Int
-    let temperature: Temperature
+    let sun: Sun
+    let moon: Moon
+    let temperature, realFeelTemperature, realFeelTemperatureShade: Temperature
+    let hoursOfSun: Double
+    let degreeDaySummary: DegreeDaySummary
+    let airAndPollen: [AirAndPollen]
     let day, night: Forecast
     let sources: [String]
     let mobileLink, link: String
@@ -16,7 +21,14 @@ struct DailyForecastElement: Codable {
     enum CodingKeys: String, CodingKey {
         case date = "Date"
         case epochDate = "EpochDate"
+        case sun = "Sun"
+        case moon = "Moon"
         case temperature = "Temperature"
+        case realFeelTemperature = "RealFeelTemperature"
+        case realFeelTemperatureShade = "RealFeelTemperatureShade"
+        case hoursOfSun = "HoursOfSun"
+        case degreeDaySummary = "DegreeDaySummary"
+        case airAndPollen = "AirAndPollen"
         case day = "Day"
         case night = "Night"
         case sources = "Sources"

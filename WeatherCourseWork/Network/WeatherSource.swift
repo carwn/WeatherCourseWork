@@ -51,6 +51,7 @@ class WeatherSource {
     private func dailyWeatherURL(accuWeatherID: AccuWeatherID) -> URL? {
         let queryItems = [URLQueryItem(name: "apikey", value: apiKey),
                           URLQueryItem(name: "language", value: "ru-ru"),
+                          URLQueryItem(name: "details", value: "true"),
                           URLQueryItem(name: "metric", value: "true")]
         var urlComponents = URLComponents(string: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/\(accuWeatherID)")
         urlComponents?.queryItems = queryItems

@@ -9,12 +9,40 @@ struct Forecast: Codable {
     let icon: Int
     let iconPhrase: String
     let hasPrecipitation: Bool
+    let shortPhrase, longPhrase: String
+    let precipitationProbability, thunderstormProbability, rainProbability, snowProbability: Int
+    let iceProbability: Int
+    let wind, windGust: Wind
+    let totalLiquid, rain, snow, ice: Evapotranspiration
+    let hoursOfPrecipitation, hoursOfRain, hoursOfSnow, hoursOfIce: Int
+    let cloudCover: Int
+    let evapotranspiration, solarIrradiance: Evapotranspiration
     let precipitationType, precipitationIntensity: String?
 
     enum CodingKeys: String, CodingKey {
         case icon = "Icon"
         case iconPhrase = "IconPhrase"
         case hasPrecipitation = "HasPrecipitation"
+        case shortPhrase = "ShortPhrase"
+        case longPhrase = "LongPhrase"
+        case precipitationProbability = "PrecipitationProbability"
+        case thunderstormProbability = "ThunderstormProbability"
+        case rainProbability = "RainProbability"
+        case snowProbability = "SnowProbability"
+        case iceProbability = "IceProbability"
+        case wind = "Wind"
+        case windGust = "WindGust"
+        case totalLiquid = "TotalLiquid"
+        case rain = "Rain"
+        case snow = "Snow"
+        case ice = "Ice"
+        case hoursOfPrecipitation = "HoursOfPrecipitation"
+        case hoursOfRain = "HoursOfRain"
+        case hoursOfSnow = "HoursOfSnow"
+        case hoursOfIce = "HoursOfIce"
+        case cloudCover = "CloudCover"
+        case evapotranspiration = "Evapotranspiration"
+        case solarIrradiance = "SolarIrradiance"
         case precipitationType = "PrecipitationType"
         case precipitationIntensity = "PrecipitationIntensity"
     }
