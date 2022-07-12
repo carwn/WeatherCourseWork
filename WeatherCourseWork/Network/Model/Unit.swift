@@ -8,4 +8,6 @@ enum Unit: String, Codable {
     case kmH = "km/h"
     case mm = "mm"
     case wM = "W/m²"
+    case km = "km"
+    case m = "m"
 }

@@ -12,9 +12,28 @@ class WeatherSource {
     private let apiKey = "UbwHM9iNznfqNhFQAolGGvG9ubUCtxDV"
     
     func dailyForecast(location: Location,
-                      queue: DispatchQueue = .main,
-                      completion: @escaping (Result<DailyForecast, WeatherSourceError>) -> Void) {
-        guard let url = dailyWeatherURL(accuWeatherID: location.accuWeatherID) else {
+                       queue: DispatchQueue = .main,
+                       completion: @escaping (Result<DailyForecast, WeatherSourceError>) -> Void) {
+        forecast(type: .daily,
+                 location: location,
+                 queue: queue,
+                 completion: completion)
+    }
+    
+    func hourlyForecast(location: Location,
+                        queue: DispatchQueue = .main,
+                        completion: @escaping (Result<[HourlyForecastElement], WeatherSourceError>) -> Void) {
+        forecast(type: .hourly,
+                 location: location,
+                 queue: queue,
+                 completion: completion)
+    }
+    
+    private func forecast<T: Decodable>(type: ForecastType,
+                                        location: Location,
+                                        queue: DispatchQueue = .main,
+                                        completion: @escaping (Result<T, WeatherSourceError>) -> Void) {
+        guard let url = weatherURL(accuWeatherID: location.accuWeatherID, type: type) else {
             queue.async {
                 completion(.failure(.cantCreateURL))
             }
@@ -36,7 +55,7 @@ class WeatherSource {
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
-                let weather = try decoder.decode(DailyForecast.self, from: data)
+                let weather = try decoder.decode(T.self, from: data)
                 queue.async {
                     completion(.success(weather))
                 }
@@ -48,13 +67,28 @@ class WeatherSource {
         }.resume()
     }
     
-    private func dailyWeatherURL(accuWeatherID: AccuWeatherID) -> URL? {
+    private func weatherURL(accuWeatherID: AccuWeatherID, type: ForecastType) -> URL? {
         let queryItems = [URLQueryItem(name: "apikey", value: apiKey),
                           URLQueryItem(name: "language", value: "ru-ru"),
                           URLQueryItem(name: "details", value: "true"),
                           URLQueryItem(name: "metric", value: "true")]
-        var urlComponents = URLComponents(string: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/\(accuWeatherID)")
+        var urlComponents = URLComponents(string: "\(type.baseURL)\(accuWeatherID)")
         urlComponents?.queryItems = queryItems
         return urlComponents?.url
+    }
+}
+
+extension WeatherSource {
+    enum ForecastType {
+        case daily, hourly
+        
+        var baseURL: String {
+            switch self {
+            case .daily:
+                return "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"
+            case .hourly:
+                return "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/"
+            }
+        }
     }
 }

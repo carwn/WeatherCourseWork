@@ -37,6 +37,10 @@
 		6DFD16DC287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16DB287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift */; };
 		6DFD16E1287D096B0001B884 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16DF287D096B0001B884 /* DailyForecastTableViewCell.swift */; };
 		6DFD16E2287D096B0001B884 /* DailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD16E0287D096B0001B884 /* DailyForecastTableViewCell.xib */; };
+		6DFD16F8287D2DC10001B884 /* HourlyForecastElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16F7287D2DC10001B884 /* HourlyForecastElement.swift */; };
+		6DFD16FA287D2E5D0001B884 /* UVIndexText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16F9287D2E5D0001B884 /* UVIndexText.swift */; };
+		6DFD16FC287D2ED50001B884 /* WindGust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16FB287D2ED50001B884 /* WindGust.swift */; };
+		6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16FD287D347D0001B884 /* UIViewController+showError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,10 @@
 		6DFD16DB287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForecastSummaryViewController+tableView.swift"; sourceTree = "<group>"; };
 		6DFD16DF287D096B0001B884 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
 		6DFD16E0287D096B0001B884 /* DailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastTableViewCell.xib; sourceTree = "<group>"; };
+		6DFD16F7287D2DC10001B884 /* HourlyForecastElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastElement.swift; sourceTree = "<group>"; };
+		6DFD16F9287D2E5D0001B884 /* UVIndexText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UVIndexText.swift; sourceTree = "<group>"; };
+		6DFD16FB287D2ED50001B884 /* WindGust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindGust.swift; sourceTree = "<group>"; };
+		6DFD16FD287D347D0001B884 /* UIViewController+showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showError.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				6DFD16A3287BDCDD0001B884 /* UIAlertController+infoAlert.swift */,
+				6DFD16FD287D347D0001B884 /* UIViewController+showError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +200,9 @@
 				6DFD16C0287D05AC0001B884 /* Sun.swift */,
 				6DFD16BD287D05AC0001B884 /* Unit.swift */,
 				6DFD16BF287D05AC0001B884 /* Wind.swift */,
+				6DFD16F7287D2DC10001B884 /* HourlyForecastElement.swift */,
+				6DFD16F9287D2E5D0001B884 /* UVIndexText.swift */,
+				6DFD16FB287D2ED50001B884 /* WindGust.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +328,7 @@
 				6DFD16D0287D05AC0001B884 /* Sun.swift in Sources */,
 				6DFD16CC287D05AC0001B884 /* DailyForecastElement.swift in Sources */,
 				6DFD16D9287D05AC0001B884 /* DailyForecast.swift in Sources */,
+				6DFD16F8287D2DC10001B884 /* HourlyForecastElement.swift in Sources */,
 				6DFD168E287BC9FF0001B884 /* WeatherSource.swift in Sources */,
 				6DFD165A287B21080001B884 /* AppDelegate.swift in Sources */,
 				6DFD16DC287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift in Sources */,
@@ -326,12 +339,15 @@
 				6DFD16D2287D05AC0001B884 /* Forecast.swift in Sources */,
 				6DFD16CF287D05AC0001B884 /* Wind.swift in Sources */,
 				6DFD1664287B21080001B884 /* WeatherCourseWork.xcdatamodeld in Sources */,
+				6DFD16FA287D2E5D0001B884 /* UVIndexText.swift in Sources */,
 				6DFD16D7287D05AC0001B884 /* Direction.swift in Sources */,
 				6DFD16CD287D05AC0001B884 /* Unit.swift in Sources */,
+				6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */,
 				6DFD16D4287D05AC0001B884 /* AirAndPollen.swift in Sources */,
 				6DFD16E1287D096B0001B884 /* DailyForecastTableViewCell.swift in Sources */,
 				6DFD165C287B21080001B884 /* SceneDelegate.swift in Sources */,
 				6DFD169C287BDAAF0001B884 /* Location.swift in Sources */,
+				6DFD16FC287D2ED50001B884 /* WindGust.swift in Sources */,
 				6DFD16D8287D05AC0001B884 /* Temperature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
