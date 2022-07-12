@@ -7,12 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ForecastSummaryViewController: UIViewController {
     
     let source = WeatherSource()
+    var dailyForecast: DailyForecast? {
+        didSet {
+            dailyForecastTableView.reloadData()
+        }
+    }
     
-    @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var dailyForecastTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dailyForecastTableView.register(UINib(nibName: "DailyForecastTableViewCell" , bundle: nil), forCellReuseIdentifier: String(describing: DailyForecastTableViewCell.self))
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,7 +35,7 @@ class ViewController: UIViewController {
                 self.loadingIndicator.stopAnimating()
                 switch result {
                 case .success(let weather):
-                    self.testLabel.text = weather.headline.text
+                    self.dailyForecast = weather
                     print(weather)
                 case .failure(let error):
                     self.present(UIAlertController.errorAlert(message: error.localizedDescription), animated: true)

@@ -9,38 +9,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Forecast Summary View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherCourseWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ForecastSummaryViewController" customModule="WeatherCourseWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZc-Iu-4KA">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lH3-h1-tNa">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sQZ-ch-Exb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3Ic-60-mmJ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Azo-qf-xl2"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wZc-Iu-4KA" secondAttribute="trailing" constant="20" id="7zV-1J-gHu"/>
+                            <constraint firstItem="sQZ-ch-Exb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="95U-Js-kac"/>
+                            <constraint firstAttribute="bottom" secondItem="sQZ-ch-Exb" secondAttribute="bottom" id="AaH-ZS-r2O"/>
                             <constraint firstItem="lH3-h1-tNa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bly-zt-iRp"/>
-                            <constraint firstItem="wZc-Iu-4KA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EnB-W0-YRA"/>
-                            <constraint firstItem="wZc-Iu-4KA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="U8F-Wn-JKC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wZc-Iu-4KA" secondAttribute="bottom" constant="20" id="m3T-zi-AjC"/>
+                            <constraint firstAttribute="trailing" secondItem="sQZ-ch-Exb" secondAttribute="trailing" id="Ggm-vb-Giw"/>
+                            <constraint firstItem="sQZ-ch-Exb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h9k-Bw-6kF"/>
                             <constraint firstItem="lH3-h1-tNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zaD-0W-cZt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dailyForecastTableView" destination="sQZ-ch-Exb" id="0zZ-n9-12z"/>
                         <outlet property="loadingIndicator" destination="lH3-h1-tNa" id="weI-ef-MiE"/>
-                        <outlet property="testLabel" destination="wZc-Iu-4KA" id="pG9-hk-sZP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
