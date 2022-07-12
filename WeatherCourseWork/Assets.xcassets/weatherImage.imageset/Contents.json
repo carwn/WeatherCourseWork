@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "weatherImage.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

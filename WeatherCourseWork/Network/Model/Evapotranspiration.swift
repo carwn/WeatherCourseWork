@@ -18,3 +18,10 @@ struct Evapotranspiration: Codable {
         case phrase = "Phrase"
     }
 }
+
+extension Evapotranspiration: CustomStringConvertible {
+    var description: String {
+        let unit = unit == .c ? "°" : unit.rawValue
+        return "\(String(format: "%.0f", value))\(unit)"
+    }
+}
