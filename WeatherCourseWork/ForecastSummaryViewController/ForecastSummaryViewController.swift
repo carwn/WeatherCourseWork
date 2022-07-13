@@ -9,7 +9,7 @@ import UIKit
 
 class ForecastSummaryViewController: UIViewController {
     
-    let source = WeatherSource()
+    let source = NetworkService()
     let location = Location(accuWeatherID: 294021)
     
     private(set) var dailyForecast: DailyForecast? {

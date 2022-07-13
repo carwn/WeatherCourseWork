@@ -1,5 +1,5 @@
 //
-//  WeatherSourceError.swift
+//  NetworkServiceError.swift
 //  WeatherCourseWork
 //
 //  Created by Александр Шелихов on 11.07.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeatherSourceError: LocalizedError {
+enum NetworkServiceError: LocalizedError {
     case cantCreateURL
     case noDataInResponce
     case other(Error)

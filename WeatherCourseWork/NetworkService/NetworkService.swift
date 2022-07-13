@@ -1,5 +1,5 @@
 //
-//  WeatherSource.swift
+//  NetworkService.swift
 //  WeatherCourseWork
 //
 //  Created by Александр Шелихов on 11.07.2022.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-class WeatherSource {
+class NetworkService {
     
     private let apiKey = "UbwHM9iNznfqNhFQAolGGvG9ubUCtxDV"
     
     func dailyForecast(location: Location,
                        queue: DispatchQueue = .main,
-                       completion: @escaping (Result<DailyForecast, WeatherSourceError>) -> Void) {
+                       completion: @escaping (Result<DailyForecast, NetworkServiceError>) -> Void) {
         forecast(type: .daily,
                  location: location,
                  queue: queue,
@@ -22,7 +22,7 @@ class WeatherSource {
     
     func hourlyForecast(location: Location,
                         queue: DispatchQueue = .main,
-                        completion: @escaping (Result<[HourlyForecastElement], WeatherSourceError>) -> Void) {
+                        completion: @escaping (Result<[HourlyForecastElement], NetworkServiceError>) -> Void) {
         forecast(type: .hourly,
                  location: location,
                  queue: queue,
@@ -31,7 +31,7 @@ class WeatherSource {
     
     func currentCondition(location: Location,
                           queue: DispatchQueue = .main,
-                          completion: @escaping (Result<[CurrentCondition], WeatherSourceError>) -> Void) {
+                          completion: @escaping (Result<[CurrentCondition], NetworkServiceError>) -> Void) {
         forecast(type: .current,
                  location: location,
                  queue: queue,
@@ -41,7 +41,7 @@ class WeatherSource {
     private func forecast<T: Decodable>(type: ForecastType,
                                         location: Location,
                                         queue: DispatchQueue,
-                                        completion: @escaping (Result<T, WeatherSourceError>) -> Void) {
+                                        completion: @escaping (Result<T, NetworkServiceError>) -> Void) {
         guard let url = weatherURL(accuWeatherID: location.accuWeatherID, type: type) else {
             queue.async {
                 completion(.failure(.cantCreateURL))
@@ -87,7 +87,7 @@ class WeatherSource {
     }
 }
 
-extension WeatherSource {
+private extension NetworkService {
     enum ForecastType {
         case daily, hourly, current
         
