@@ -22,6 +22,11 @@ class ForecastSummaryViewController: UIViewController {
             hourlyForecastCollectionView.reloadData()
         }
     }
+    private(set) var currentCondition: [CurrentCondition]? {
+        didSet {
+            print(currentCondition as Any)
+        }
+    }
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dailyForecastTableView: UITableView!
@@ -66,6 +71,22 @@ class ForecastSummaryViewController: UIViewController {
                 switch result {
                 case .success(let weather):
                     self.horlyForecast = weather
+                case .failure(let error):
+                    self.showError(error)
+                    print(error)
+                }
+                group.leave()
+            }
+        }
+        
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            self.source.currentCondition(location: self.location, queue: .main) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let weather):
+                    self.currentCondition = weather
                 case .failure(let error):
                     self.showError(error)
                     print(error)

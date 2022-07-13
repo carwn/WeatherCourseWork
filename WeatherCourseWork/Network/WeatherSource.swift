@@ -29,6 +29,15 @@ class WeatherSource {
                  completion: completion)
     }
     
+    func currentCondition(location: Location,
+                          queue: DispatchQueue = .main,
+                          completion: @escaping (Result<[CurrentCondition], WeatherSourceError>) -> Void) {
+        forecast(type: .current,
+                 location: location,
+                 queue: queue,
+                 completion: completion)
+    }
+    
     private func forecast<T: Decodable>(type: ForecastType,
                                         location: Location,
                                         queue: DispatchQueue,
@@ -80,7 +89,7 @@ class WeatherSource {
 
 extension WeatherSource {
     enum ForecastType {
-        case daily, hourly
+        case daily, hourly, current
         
         var baseURL: String {
             switch self {
@@ -88,6 +97,8 @@ extension WeatherSource {
                 return "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"
             case .hourly:
                 return "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/"
+            case .current:
+                return "http://dataservice.accuweather.com/currentconditions/v1/"
             }
         }
     }
