@@ -27,9 +27,11 @@ class HourForecastCollectionViewCell: UICollectionViewCell {
     }
     
     private func date(for hourlyForecast: HourlyForecastElement) -> String {
+        let date = hourlyForecast.dateTime
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: hourlyForecast.dateTime)
+        dateFormatter.timeZone = Calendar.current.dateComponents([.timeZone], from: date).timeZone
+        return dateFormatter.string(from: date)
     }
     
     private func image(for hourlyForecast: HourlyForecastElement) -> UIImage? {
