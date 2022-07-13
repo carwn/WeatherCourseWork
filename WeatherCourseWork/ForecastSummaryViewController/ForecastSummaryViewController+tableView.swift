@@ -22,5 +22,7 @@ extension ForecastSummaryViewController: UITableViewDataSource {
 }
 
 extension ForecastSummaryViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        66
+    }
 }

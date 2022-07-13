@@ -15,6 +15,12 @@ class DailyForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16))
+        contentView.layer.cornerRadius = 5
+    }
+    
     func configure(_ dailyForecast: DailyForecastElement) {
         dateLabel.text = date(for: dailyForecast)
         weatherImage.image = image(for: dailyForecast)
