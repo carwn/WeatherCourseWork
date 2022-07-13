@@ -7,7 +7,7 @@ import Foundation
 
 // MARK: - WindGust
 struct WindGust: Codable {
-    let speed: Evapotranspiration
+    let speed: Value
 
     enum CodingKeys: String, CodingKey {
         case speed = "Speed"

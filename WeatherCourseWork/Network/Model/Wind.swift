@@ -6,7 +6,7 @@
 import Foundation
 
 struct Wind: Codable {
-    let speed: Evapotranspiration
+    let speed: Value
     let direction: Direction
 
     enum CodingKeys: String, CodingKey {

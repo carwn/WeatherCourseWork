@@ -11,19 +11,19 @@ struct HourlyForecastElement: Codable {
     let epochDateTime, weatherIcon: Int
     let iconPhrase: String
     let hasPrecipitation, isDaylight: Bool
-    let temperature, realFeelTemperature, realFeelTemperatureShade, wetBulbTemperature: Evapotranspiration
-    let dewPoint: Evapotranspiration
+    let temperature, realFeelTemperature, realFeelTemperatureShade, wetBulbTemperature: Value
+    let dewPoint: Value
     let wind: Wind
     let windGust: WindGust
     let relativeHumidity, indoorRelativeHumidity: Int
-    let visibility, ceiling: Evapotranspiration
+    let visibility, ceiling: Value
     let uvIndex: Int
-    let uvIndexText: UVIndexText
+    let uvIndexText: String
     let precipitationProbability, thunderstormProbability, rainProbability, snowProbability: Int
     let iceProbability: Int
-    let totalLiquid, rain, snow, ice: Evapotranspiration
+    let totalLiquid, rain, snow, ice: Value
     let cloudCover: Int
-    let evapotranspiration, solarIrradiance: Evapotranspiration
+    let evapotranspiration, solarIrradiance: Value
     let mobileLink, link: String
 
     enum CodingKeys: String, CodingKey {

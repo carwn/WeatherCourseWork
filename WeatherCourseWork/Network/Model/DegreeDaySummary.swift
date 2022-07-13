@@ -6,7 +6,7 @@
 import Foundation
 
 struct DegreeDaySummary: Codable {
-    let heating, cooling: Evapotranspiration
+    let heating, cooling: Value
 
     enum CodingKeys: String, CodingKey {
         case heating = "Heating"

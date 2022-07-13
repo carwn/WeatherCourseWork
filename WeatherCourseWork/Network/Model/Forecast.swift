@@ -13,10 +13,10 @@ struct Forecast: Codable {
     let precipitationProbability, thunderstormProbability, rainProbability, snowProbability: Int
     let iceProbability: Int
     let wind, windGust: Wind
-    let totalLiquid, rain, snow, ice: Evapotranspiration
+    let totalLiquid, rain, snow, ice: Value
     let hoursOfPrecipitation, hoursOfRain, hoursOfSnow, hoursOfIce: Int
     let cloudCover: Int
-    let evapotranspiration, solarIrradiance: Evapotranspiration
+    let evapotranspiration, solarIrradiance: Value
     let precipitationType, precipitationIntensity: String?
 
     enum CodingKeys: String, CodingKey {

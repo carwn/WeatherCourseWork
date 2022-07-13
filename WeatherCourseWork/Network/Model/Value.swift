@@ -1,15 +1,15 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-// let evapotranspiration = try? newJSONDecoder().decode(Evapotranspiration.self, from: jsonData)
+// let value = try? newJSONDecoder().decode(Value.self, from: jsonData)
 
 import Foundation
 
-struct Evapotranspiration: Codable {
+struct Value: Codable {
     let value: Double
-    let unit: Unit
+    let unit: String
     let unitType: Int
-    let phrase: Phrase?
+    let phrase: String?
 
     enum CodingKeys: String, CodingKey {
         case value = "Value"
@@ -19,9 +19,9 @@ struct Evapotranspiration: Codable {
     }
 }
 
-extension Evapotranspiration: CustomStringConvertible {
+extension Value: CustomStringConvertible {
     var description: String {
-        let unit = unit == .c ? "°" : unit.rawValue
+        let unit = unit == "C" ? "°" : unit
         return "\(String(format: "%.0f", value))\(unit)"
     }
 }

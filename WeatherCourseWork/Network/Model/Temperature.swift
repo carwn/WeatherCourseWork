@@ -6,7 +6,7 @@
 import Foundation
 
 struct Temperature: Codable {
-    let minimum, maximum: Evapotranspiration
+    let minimum, maximum: Value
 
     enum CodingKeys: String, CodingKey {
         case minimum = "Minimum"

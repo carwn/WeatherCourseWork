@@ -8,7 +8,7 @@ import Foundation
 struct AirAndPollen: Codable {
     let name: String
     let value: Int
-    let category: Category
+    let category: String
     let categoryValue: Int
     let type: String?
 
