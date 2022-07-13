@@ -24,7 +24,7 @@ class ForecastSummaryViewController: UIViewController {
     }
     private(set) var currentCondition: [CurrentCondition]? {
         didSet {
-            print(currentCondition as Any)
+            children.forEach { ($0 as? CurrentWeatherViewController)?.currentConditions = currentCondition }
         }
     }
     
