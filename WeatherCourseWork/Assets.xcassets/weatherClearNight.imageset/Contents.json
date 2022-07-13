@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "weatherClearNight.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

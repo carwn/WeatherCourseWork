@@ -30,24 +30,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDw-uL-KYZ">
-                        <rect key="frame" x="11" y="31.5" width="20" height="20"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHf-WB-Svs">
+                        <rect key="frame" x="0.0" y="22.5" width="42" height="33"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDw-uL-KYZ">
+                                <rect key="frame" x="11" y="6.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Cqm-Qz-olH"/>
+                                    <constraint firstAttribute="width" secondItem="XDw-uL-KYZ" secondAttribute="height" multiplier="1:1" id="xwI-gZ-GQP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="Cqm-Qz-olH"/>
-                            <constraint firstAttribute="width" secondItem="XDw-uL-KYZ" secondAttribute="height" multiplier="1:1" id="xwI-gZ-GQP"/>
+                            <constraint firstItem="XDw-uL-KYZ" firstAttribute="centerX" secondItem="IHf-WB-Svs" secondAttribute="centerX" id="WWf-HJ-CMR"/>
+                            <constraint firstItem="XDw-uL-KYZ" firstAttribute="centerY" secondItem="IHf-WB-Svs" secondAttribute="centerY" id="nYG-i5-y5S"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="uac-kK-beo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="9dn-85-CCZ"/>
                 <constraint firstAttribute="bottom" secondItem="C70-qp-Djf" secondAttribute="bottom" constant="8" id="CSc-Qk-ZP9"/>
-                <constraint firstItem="XDw-uL-KYZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Qab-cs-LGx"/>
-                <constraint firstItem="XDw-uL-KYZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="YnR-D8-KB0"/>
+                <constraint firstItem="IHf-WB-Svs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NnL-L3-MoU"/>
+                <constraint firstItem="C70-qp-Djf" firstAttribute="top" secondItem="IHf-WB-Svs" secondAttribute="bottom" id="cxW-hs-1Ts"/>
+                <constraint firstAttribute="trailing" secondItem="IHf-WB-Svs" secondAttribute="trailing" id="cxb-s5-77Y"/>
                 <constraint firstItem="uac-kK-beo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="gmk-cV-Ny8"/>
                 <constraint firstAttribute="trailing" secondItem="C70-qp-Djf" secondAttribute="trailing" constant="5" id="guZ-CX-Dkj"/>
                 <constraint firstAttribute="trailing" secondItem="uac-kK-beo" secondAttribute="trailing" constant="5" id="pq2-cB-7hR"/>
+                <constraint firstItem="IHf-WB-Svs" firstAttribute="top" secondItem="uac-kK-beo" secondAttribute="bottom" id="xnP-Y5-cXC"/>
                 <constraint firstItem="C70-qp-Djf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ydW-MI-EXM"/>
             </constraints>
             <connections>
@@ -55,7 +67,7 @@
                 <outlet property="hourLabel" destination="uac-kK-beo" id="IkG-gi-Kxp"/>
                 <outlet property="temperatureLabel" destination="C70-qp-Djf" id="Wbl-5V-3lB"/>
             </connections>
-            <point key="canvasLocation" x="139" y="117"/>
+            <point key="canvasLocation" x="137.68115942028987" y="116.85267857142857"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -32,8 +32,18 @@ class HourForecastCollectionViewCell: UICollectionViewCell {
         return dateFormatter.string(from: hourlyForecast.dateTime)
     }
     
-    private func image(for hourlyForecast: HourlyForecastElement) -> UIImage {
-        return #imageLiteral(resourceName: "weatherImage.pdf")
+    private func image(for hourlyForecast: HourlyForecastElement) -> UIImage? {
+        // https://developer.accuweather.com/weather-icons
+        switch hourlyForecast.weatherIcon {
+        case 1...5, 30...37:
+            return hourlyForecast.isDaylight ? UIImage(named: "weatherSun") : UIImage(named: "weatherClearNight")
+        case 6...11, 38:
+            return UIImage(named: "weatherCloudy")
+        case 12...29, 39...44:
+            return UIImage(named: "weatherRain")
+        default:
+            return nil
+        }
     }
     
     private func temperatureDescription(for hourlyForecast: HourlyForecastElement) -> String {

@@ -30,7 +30,7 @@ class DailyForecastTableViewCell: UITableViewCell {
     }
     
     private func image(for dailyForecast: DailyForecastElement) -> UIImage {
-        return #imageLiteral(resourceName: "weatherImage.pdf")
+        UIImage(named: "weatherRain")!
     }
     
     private func precipitationProbability(for dailyForecast: DailyForecastElement) -> String {
