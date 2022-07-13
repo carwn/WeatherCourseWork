@@ -76,6 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Выберете город 👉" id="bcV-qA-Sjd">
                         <barButtonItem key="rightBarButtonItem" image="geoIcon" id="UaG-mT-0sg">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="selectLocationButtonPressed:" destination="BYZ-38-t0r" id="lVj-FE-Ucg"/>
                             </connections>
