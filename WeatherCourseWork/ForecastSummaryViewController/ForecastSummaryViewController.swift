@@ -15,6 +15,8 @@ class ForecastSummaryViewController: UIViewController {
     private(set) var dailyForecast: DailyForecast? {
         didSet {
             dailyForecastTableView.reloadData()
+            currentWeatherViewController?.setup(dayTime: dailyForecast?.dailyForecasts.first?.sun.rise,
+                                                sunset: dailyForecast?.dailyForecasts.first?.sun.sunSet)
         }
     }
     private(set) var horlyForecast: [HourlyForecastElement]? {
@@ -22,9 +24,9 @@ class ForecastSummaryViewController: UIViewController {
             hourlyForecastCollectionView.reloadData()
         }
     }
-    private(set) var currentCondition: [CurrentCondition]? {
+    private(set) var currentConditions: [CurrentCondition]? {
         didSet {
-            children.forEach { ($0 as? CurrentWeatherViewController)?.currentConditions = currentCondition }
+            currentWeatherViewController?.setup(currentCondition: currentConditions?.first)
         }
     }
     
@@ -86,7 +88,7 @@ class ForecastSummaryViewController: UIViewController {
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
-                    self.currentCondition = weather
+                    self.currentConditions = weather
                 case .failure(let error):
                     self.showError(error)
                     print(error)
@@ -98,5 +100,14 @@ class ForecastSummaryViewController: UIViewController {
         group.notify(queue: .main) { [weak self] in
             self?.loadingIndicator.stopAnimating()
         }
+    }
+    
+    private var currentWeatherViewController: CurrentWeatherViewController? {
+        for child in children {
+            if let currentWeatherViewController = child as? CurrentWeatherViewController {
+                return currentWeatherViewController
+            }
+        }
+        return nil
     }
 }

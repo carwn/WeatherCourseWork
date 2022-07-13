@@ -218,6 +218,17 @@
                             <constraint firstItem="iM3-is-eCa" firstAttribute="top" secondItem="rZ2-XU-JNK" secondAttribute="bottom" constant="5" id="yPX-aQ-TBr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTemperatureLabel" destination="eB4-Wh-hvv" id="NDq-w3-1BM"/>
+                        <outlet property="dateLabel" destination="ezR-he-xcx" id="kKu-6Y-F4e"/>
+                        <outlet property="dayTimeLabel" destination="z7Y-Ac-DrW" id="wzp-SA-vRs"/>
+                        <outlet property="precipitationLabel" destination="gDj-Dz-f8m" id="cZk-41-syv"/>
+                        <outlet property="sunsetLabel" destination="X7T-6S-cFa" id="M3h-sE-WVf"/>
+                        <outlet property="temperatureSummaryLabel" destination="bEZ-f2-o6w" id="Lj7-rS-ExJ"/>
+                        <outlet property="unknowParameterLabel" destination="aKH-j4-9W2" id="LRZ-So-s5p"/>
+                        <outlet property="weatherDescriptionLabel" destination="cL1-RV-8ZB" id="gbh-Jd-fwk"/>
+                        <outlet property="windLabel" destination="0Ff-2w-DJH" id="gLy-cv-DQe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ck-bB-m1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

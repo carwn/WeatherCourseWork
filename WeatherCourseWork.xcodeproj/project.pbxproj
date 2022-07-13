@@ -127,12 +127,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DF7580D287EA05500C8E111 /* CurrentWeatherViewController */ = {
+		6DF7580E287ECACE00C8E111 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				6DF75809287EA04500C8E111 /* CurrentWeatherViewController.swift */,
+				6DFD16DB287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift */,
+				6DFD16DF287D096B0001B884 /* DailyForecastTableViewCell.swift */,
+				6DFD16E0287D096B0001B884 /* DailyForecastTableViewCell.xib */,
 			);
-			path = CurrentWeatherViewController;
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		6DF7580F287ECADE00C8E111 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				6DFD16FF287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift */,
+				6DFD1701287D5B550001B884 /* HourForecastCollectionViewCell.swift */,
+				6DFD1702287D5B550001B884 /* HourForecastCollectionViewCell.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		6DFD164D287B21080001B884 = {
@@ -158,12 +170,11 @@
 			children = (
 				6DFD1659287B21080001B884 /* AppDelegate.swift */,
 				6DFD165B287B21080001B884 /* SceneDelegate.swift */,
+				6DFD165F287B21080001B884 /* Main.storyboard */,
 				6DFD16DA287D08F30001B884 /* ForecastSummaryViewController */,
 				6DFD16A2287BDC3E0001B884 /* Location */,
 				6DFD168C287BC9D90001B884 /* Network */,
 				6DFD169F287BDBE60001B884 /* Extensions */,
-				6DF7580D287EA05500C8E111 /* CurrentWeatherViewController */,
-				6DFD165F287B21080001B884 /* Main.storyboard */,
 				6DFD1665287B21080001B884 /* Assets.xcassets */,
 				6DFD1667287B21080001B884 /* LaunchScreen.storyboard */,
 				6DFD166A287B21080001B884 /* Info.plist */,
@@ -240,12 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				6DFD165D287B21080001B884 /* ForecastSummaryViewController.swift */,
-				6DFD16DB287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift */,
-				6DFD16DF287D096B0001B884 /* DailyForecastTableViewCell.swift */,
-				6DFD16E0287D096B0001B884 /* DailyForecastTableViewCell.xib */,
-				6DFD16FF287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift */,
-				6DFD1701287D5B550001B884 /* HourForecastCollectionViewCell.swift */,
-				6DFD1702287D5B550001B884 /* HourForecastCollectionViewCell.xib */,
+				6DF7580E287ECACE00C8E111 /* TableView */,
+				6DF7580F287ECADE00C8E111 /* CollectionView */,
+				6DF75809287EA04500C8E111 /* CurrentWeatherViewController.swift */,
 			);
 			path = ForecastSummaryViewController;
 			sourceTree = "<group>";
