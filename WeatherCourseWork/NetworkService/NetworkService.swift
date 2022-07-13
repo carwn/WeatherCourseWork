@@ -14,35 +14,31 @@ class NetworkService {
     func dailyForecast(location: Location,
                        queue: DispatchQueue = .main,
                        completion: @escaping (Result<DailyForecast, NetworkServiceError>) -> Void) {
-        forecast(type: .daily,
-                 location: location,
-                 queue: queue,
-                 completion: completion)
+        requst(url: weatherURL(accuWeatherID: location.key, type: .daily), queue: queue, completion: completion)
     }
     
     func hourlyForecast(location: Location,
                         queue: DispatchQueue = .main,
                         completion: @escaping (Result<[HourlyForecastElement], NetworkServiceError>) -> Void) {
-        forecast(type: .hourly,
-                 location: location,
-                 queue: queue,
-                 completion: completion)
+        requst(url: weatherURL(accuWeatherID: location.key, type: .hourly), queue: queue, completion: completion)
     }
     
     func currentCondition(location: Location,
                           queue: DispatchQueue = .main,
                           completion: @escaping (Result<[CurrentCondition], NetworkServiceError>) -> Void) {
-        forecast(type: .current,
-                 location: location,
-                 queue: queue,
-                 completion: completion)
+        requst(url: weatherURL(accuWeatherID: location.key, type: .current), queue: queue, completion: completion)
     }
     
-    private func forecast<T: Decodable>(type: ForecastType,
-                                        location: Location,
-                                        queue: DispatchQueue,
-                                        completion: @escaping (Result<T, NetworkServiceError>) -> Void) {
-        guard let url = weatherURL(accuWeatherID: location.accuWeatherID, type: type) else {
+    func locations(searchString: String,
+                          queue: DispatchQueue = .main,
+                          completion: @escaping (Result<[Location], NetworkServiceError>) -> Void) {
+        requst(url: locationsURL(searchString: searchString), queue: queue, completion: completion)
+    }
+    
+    private func requst<T: Decodable>(url: URL?,
+                                      queue: DispatchQueue,
+                                      completion: @escaping (Result<T, NetworkServiceError>) -> Void) {
+        guard let url = url else {
             queue.async {
                 completion(.failure(.cantCreateURL))
             }
@@ -76,12 +72,22 @@ class NetworkService {
         }.resume()
     }
     
-    private func weatherURL(accuWeatherID: AccuWeatherID, type: ForecastType) -> URL? {
+    private func weatherURL(accuWeatherID: String, type: ForecastType) -> URL? {
         let queryItems = [URLQueryItem(name: "apikey", value: apiKey),
                           URLQueryItem(name: "language", value: "ru-ru"),
                           URLQueryItem(name: "details", value: "true"),
                           URLQueryItem(name: "metric", value: "true")]
         var urlComponents = URLComponents(string: "\(type.baseURL)\(accuWeatherID)")
+        urlComponents?.queryItems = queryItems
+        return urlComponents?.url
+    }
+    
+    private func locationsURL(searchString: String) -> URL? {
+        let queryItems = [URLQueryItem(name: "apikey", value: apiKey),
+                          URLQueryItem(name: "q", value: searchString),
+                          URLQueryItem(name: "language", value: "ru-ru"),
+                          URLQueryItem(name: "details", value: "false")]
+        var urlComponents = URLComponents(string: "http://dataservice.accuweather.com/locations/v1/cities/search")
         urlComponents?.queryItems = queryItems
         return urlComponents?.url
     }

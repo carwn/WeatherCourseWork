@@ -9,8 +9,14 @@ import UIKit
 
 class ForecastSummaryViewController: UIViewController {
     
-    let source = NetworkService()
-    let location = Location(accuWeatherID: 294021)
+    let networkService = NetworkService()
+    
+    var location: Location? {
+        didSet {
+            updateNavigationTitle()
+            requestForecasts()
+        }
+    }
     
     private(set) var dailyForecast: DailyForecast? {
         didSet {
@@ -45,19 +51,40 @@ class ForecastSummaryViewController: UIViewController {
         requestForecasts()
     }
     
+    @IBAction func selectLocationButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Введите город", message: nil, preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Москва"
+            textField.text = "Москва"
+        }
+        alert.addAction(UIAlertAction(title: "Поиск", style: .default, handler: { [weak self] _ in
+            self?.searchLocation(searchString: alert.textFields?[0].text)
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        present(alert, animated: true)
+    }
+    
     private func requestForecasts() {
+        guard let location = location else {
+            dailyForecast = nil
+            horlyForecast = nil
+            currentConditions = nil
+            return
+        }
+        
         loadingIndicator.startAnimating()
         let group = DispatchGroup()
         
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.source.dailyForecast(location: self.location, queue: .main) { [weak self] result in
+            self.networkService.dailyForecast(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
                     self.dailyForecast = weather
                 case .failure(let error):
+                    self.dailyForecast = nil
                     self.showError(error)
                     print(error)
                 }
@@ -68,12 +95,13 @@ class ForecastSummaryViewController: UIViewController {
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.source.hourlyForecast(location: self.location, queue: .main) { [weak self] result in
+            self.networkService.hourlyForecast(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
                     self.horlyForecast = weather
                 case .failure(let error):
+                    self.horlyForecast = nil
                     self.showError(error)
                     print(error)
                 }
@@ -84,12 +112,13 @@ class ForecastSummaryViewController: UIViewController {
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.source.currentCondition(location: self.location, queue: .main) { [weak self] result in
+            self.networkService.currentCondition(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
                     self.currentConditions = weather
                 case .failure(let error):
+                    self.currentConditions = nil
                     self.showError(error)
                     print(error)
                 }
@@ -109,5 +138,42 @@ class ForecastSummaryViewController: UIViewController {
             }
         }
         return nil
+    }
+    
+    private func searchLocation(searchString: String?) {
+        guard
+            let searchString = searchString,
+            !searchString.isEmpty
+        else {
+            showError("Не введена строка для поиска")
+            return
+        }
+        loadingIndicator.startAnimating()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+            self.networkService.locations(searchString: searchString, queue: .main) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let locations):
+                    if !locations.isEmpty {
+                        self.location = locations.first
+                    } else {
+                        self.showError("Не удалось найти город с таким названием")
+                    }
+                case .failure(let error):
+                    self.showError(error)
+                    print(error)
+                }
+                self.loadingIndicator.stopAnimating()
+            }
+        }
+    }
+    
+    private func updateNavigationTitle() {
+        guard let location = location else {
+            navigationItem.title = "Выберете город 👉"
+            return
+        }
+        navigationItem.title = "\(location.localizedName), \(location.country.localizedName)"
     }
 }

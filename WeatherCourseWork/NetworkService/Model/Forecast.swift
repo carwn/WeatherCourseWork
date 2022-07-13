@@ -14,7 +14,7 @@ struct Forecast: Codable {
     let iceProbability: Int
     let wind, windGust: Wind
     let totalLiquid, rain, snow, ice: Value
-    let hoursOfPrecipitation, hoursOfRain, hoursOfSnow, hoursOfIce: Int
+    let hoursOfPrecipitation, hoursOfRain, hoursOfSnow, hoursOfIce: Double
     let cloudCover: Int
     let evapotranspiration, solarIrradiance: Value
     let precipitationType, precipitationIntensity: String?

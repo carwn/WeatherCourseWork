@@ -8,7 +8,11 @@
 import UIKit
 
 extension UIViewController {
+    func showError(_ string: String) {
+        present(UIAlertController.errorAlert(message: string), animated: true)
+    }
+    
     func showError(_ error: Error) {
-        present(UIAlertController.errorAlert(message: error.localizedDescription), animated: true)
+        showError(error.localizedDescription)
     }
 }
