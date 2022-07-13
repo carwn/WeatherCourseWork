@@ -31,7 +31,7 @@ class WeatherSource {
     
     private func forecast<T: Decodable>(type: ForecastType,
                                         location: Location,
-                                        queue: DispatchQueue = .main,
+                                        queue: DispatchQueue,
                                         completion: @escaping (Result<T, WeatherSourceError>) -> Void) {
         guard let url = weatherURL(accuWeatherID: location.accuWeatherID, type: type) else {
             queue.async {

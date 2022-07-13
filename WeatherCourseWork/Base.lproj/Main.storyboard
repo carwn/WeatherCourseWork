@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sQZ-ch-Exb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="137" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Ic-60-mmJ"/>
@@ -28,20 +28,42 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lH3-h1-tNa">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="giT-42-3AY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="83"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="tn4-CL-eMA"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sJM-WT-WkR">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="VbK-R9-gZC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5W4-HM-6ad"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="sQZ-ch-Exb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="95U-Js-kac"/>
                             <constraint firstAttribute="bottom" secondItem="sQZ-ch-Exb" secondAttribute="bottom" id="AaH-ZS-r2O"/>
                             <constraint firstItem="lH3-h1-tNa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bly-zt-iRp"/>
+                            <constraint firstItem="sQZ-ch-Exb" firstAttribute="top" secondItem="giT-42-3AY" secondAttribute="bottom" constant="10" id="CWq-W3-VJO"/>
                             <constraint firstAttribute="trailing" secondItem="sQZ-ch-Exb" secondAttribute="trailing" id="Ggm-vb-Giw"/>
+                            <constraint firstItem="giT-42-3AY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XJ5-q6-fjo"/>
+                            <constraint firstItem="giT-42-3AY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aRj-qP-FSn"/>
                             <constraint firstItem="sQZ-ch-Exb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h9k-Bw-6kF"/>
+                            <constraint firstAttribute="trailing" secondItem="giT-42-3AY" secondAttribute="trailing" id="pdl-7q-m4A"/>
                             <constraint firstItem="lH3-h1-tNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zaD-0W-cZt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dailyForecastTableView" destination="sQZ-ch-Exb" id="0zZ-n9-12z"/>
+                        <outlet property="hourlyForecastCollectionView" destination="giT-42-3AY" id="qg7-xr-UsE"/>
                         <outlet property="loadingIndicator" destination="lH3-h1-tNa" id="weI-ef-MiE"/>
                     </connections>
                 </viewController>

@@ -19,16 +19,18 @@ class ForecastSummaryViewController: UIViewController {
     }
     private(set) var horlyForecast: [HourlyForecastElement]? {
         didSet {
-            print(horlyForecast as Any)
+            hourlyForecastCollectionView.reloadData()
         }
     }
     
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var dailyForecastTableView: UITableView!
+    @IBOutlet weak var hourlyForecastCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dailyForecastTableView.register(UINib(nibName: "DailyForecastTableViewCell" , bundle: nil), forCellReuseIdentifier: String(describing: DailyForecastTableViewCell.self))
+        hourlyForecastCollectionView.register(UINib(nibName: "HourForecastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: String(describing: HourForecastCollectionViewCell.self))
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,12 +19,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ts7-fM-4OM">
-                        <rect key="frame" x="10" y="10" width="86" height="36"/>
+                        <rect key="frame" x="16" y="10" width="86" height="36"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WqI-vt-HT2">
                                 <rect key="frame" x="23.5" y="0.0" width="39.5" height="16.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <color key="textColor" name="TextGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qGY-4L-nDY">
@@ -45,24 +44,24 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8L-HG-gdW">
-                        <rect key="frame" x="106" y="10" width="39.5" height="36"/>
+                        <rect key="frame" x="112" y="10" width="39.5" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPx-N1-v2Z">
-                        <rect key="frame" x="266" y="10" width="44" height="36"/>
+                        <rect key="frame" x="260" y="10" width="44" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ts7-fM-4OM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6wg-rL-DHA"/>
+                    <constraint firstItem="Ts7-fM-4OM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6wg-rL-DHA"/>
                     <constraint firstAttribute="bottom" secondItem="Ts7-fM-4OM" secondAttribute="bottom" constant="10" id="7ph-bL-YcM"/>
                     <constraint firstAttribute="bottom" secondItem="dPx-N1-v2Z" secondAttribute="bottom" constant="10" id="CNr-A5-87g"/>
                     <constraint firstItem="h8L-HG-gdW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="CST-td-way"/>
-                    <constraint firstAttribute="trailing" secondItem="dPx-N1-v2Z" secondAttribute="trailing" constant="10" id="IO9-AE-wFB"/>
+                    <constraint firstAttribute="trailing" secondItem="dPx-N1-v2Z" secondAttribute="trailing" constant="16" id="IO9-AE-wFB"/>
                     <constraint firstItem="dPx-N1-v2Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Iia-NV-M0v"/>
                     <constraint firstItem="h8L-HG-gdW" firstAttribute="leading" secondItem="Ts7-fM-4OM" secondAttribute="trailing" constant="10" id="LMl-LU-Dqr"/>
                     <constraint firstItem="dPx-N1-v2Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h8L-HG-gdW" secondAttribute="trailing" constant="10" id="Y89-Ki-15Z"/>
@@ -85,8 +84,8 @@
         <namedColor name="PrecipitationProbabilityColor">
             <color red="0.12549019607843137" green="0.30588235294117649" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="TextGrayColor">
+            <color red="0.61176470588235299" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
