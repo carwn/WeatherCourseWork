@@ -9,7 +9,7 @@ import UIKit
 
 class ForecastSummaryViewController: UIViewController {
     
-    let networkService = NetworkService()
+    var networkService: NetworkService?
     
     var location: Location? {
         didSet {
@@ -72,13 +72,18 @@ class ForecastSummaryViewController: UIViewController {
             return
         }
         
+        guard let networkService = networkService else {
+            showError("Не настроен доступ в сеть")
+            return
+        }
+        
         loadingIndicator.startAnimating()
         let group = DispatchGroup()
         
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.networkService.dailyForecast(location: location, queue: .main) { [weak self] result in
+            networkService.dailyForecast(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
@@ -95,7 +100,7 @@ class ForecastSummaryViewController: UIViewController {
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.networkService.hourlyForecast(location: location, queue: .main) { [weak self] result in
+            networkService.hourlyForecast(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
@@ -112,7 +117,7 @@ class ForecastSummaryViewController: UIViewController {
         group.enter()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.networkService.currentCondition(location: location, queue: .main) { [weak self] result in
+            networkService.currentCondition(location: location, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
@@ -141,6 +146,10 @@ class ForecastSummaryViewController: UIViewController {
     }
     
     private func searchLocation(searchString: String?) {
+        guard let networkService = networkService else {
+            showError("Не настроен доступ в сеть")
+            return
+        }
         guard
             let searchString = searchString,
             !searchString.isEmpty
@@ -151,7 +160,7 @@ class ForecastSummaryViewController: UIViewController {
         loadingIndicator.startAnimating()
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
-            self.networkService.locations(searchString: searchString, queue: .main) { [weak self] result in
+            networkService.locations(searchString: searchString, queue: .main) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let locations):
