@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sQZ-ch-Exb">
-                                <rect key="frame" x="0.0" y="395" width="414" height="501"/>
+                                <rect key="frame" x="0.0" y="439" width="414" height="457"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Ic-60-mmJ"/>
@@ -27,7 +27,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="giT-42-3AY">
-                                <rect key="frame" x="0.0" y="292" width="414" height="83"/>
+                                <rect key="frame" x="0.0" y="336" width="414" height="83"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="tn4-CL-eMA"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </collectionView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W3-Li-jHH">
-                                <rect key="frame" x="16" y="60" width="382" height="212"/>
+                                <rect key="frame" x="16" y="104" width="382" height="212"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="212" id="hNi-iu-CsP"/>
                                 </constraints>
@@ -75,6 +75,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Выберете город 👉" id="bcV-qA-Sjd">
+                        <barButtonItem key="leftBarButtonItem" image="settingsIcon" id="TuJ-5b-GRC">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="N1f-2k-a3T"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="geoIcon" id="UaG-mT-0sg">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -82,6 +88,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dailyForecastTableView" destination="sQZ-ch-Exb" id="0zZ-n9-12z"/>
                         <outlet property="hourlyForecastCollectionView" destination="giT-42-3AY" id="qg7-xr-UsE"/>
@@ -251,6 +258,7 @@
         <image name="iconRain" width="13" height="15"/>
         <image name="iconSunset" width="17" height="17"/>
         <image name="iconWind" width="25" height="16"/>
+        <image name="settingsIcon" width="34" height="18"/>
         <namedColor name="AppMainColor">
             <color red="0.12549019607843137" green="0.30588235294117649" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

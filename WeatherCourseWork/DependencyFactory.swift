@@ -18,4 +18,11 @@ class DependencyFactory {
         vc.presenter = presenter
         return vc
     }
+    
+    func makeSettingsViewController(coordinator: ApplicationCoordinator) -> SettingsViewController {
+        let vc = SettingsViewController()
+        let presenter = SettingsPresenter(view: vc, coordinator: coordinator)
+        vc.presenter = presenter
+        return vc
+    }
 }

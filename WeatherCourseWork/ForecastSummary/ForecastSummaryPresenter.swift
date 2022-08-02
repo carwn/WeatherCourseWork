@@ -75,6 +75,10 @@ class ForecastSummaryPresenter {
         }
     }
     
+    func openAppSettings() {
+        coordinator.openSettings()
+    }
+    
     private func requestForecasts() {
         guard let location = location else {
             dailyForecast = nil

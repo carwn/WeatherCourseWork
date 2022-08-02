@@ -39,6 +39,10 @@ class ForecastSummaryViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        presenter?.openAppSettings()
+    }
+    
     private var currentWeatherViewController: CurrentWeatherViewController? {
         for child in children {
             if let currentWeatherViewController = child as? CurrentWeatherViewController {
