@@ -22,6 +22,7 @@ final class ApplicationCoordinator {
     func openSettings() {
         guard let navigationController = navigationController else { return }
         let vc = factory.makeSettingsViewController(coordinator: self)
+        vc.modalPresentationStyle = .fullScreen
         navigationController.present(vc, animated: true)
     }
     
