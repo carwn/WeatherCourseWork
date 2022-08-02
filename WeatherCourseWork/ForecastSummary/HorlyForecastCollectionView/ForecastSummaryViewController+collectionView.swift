@@ -9,12 +9,12 @@ import UIKit
 
 extension ForecastSummaryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        horlyForecast?.count ?? 0
+        presenter?.horlyForecast?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HourForecastCollectionViewCell.self), for: indexPath) as! HourForecastCollectionViewCell
-        if let forecast = horlyForecast?[indexPath.row] {
+        if let forecast = presenter?.horlyForecast?[indexPath.row] {
             cell.configure(forecast)
         }
         return cell

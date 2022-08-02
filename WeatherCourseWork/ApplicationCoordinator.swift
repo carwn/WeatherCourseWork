@@ -8,29 +8,14 @@
 import UIKit
 
 final class ApplicationCoordinator {
-
-    private let window: UIWindow
-    private let mainNavigationController: UINavigationController
-
-    private let networkService: NetworkService
     
-    init(scene: UIWindowScene) {
-        let networkService = NetworkService()
-        let window = UIWindow(windowScene: scene)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainNavigationController = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as! UINavigationController
-        for viewController in mainNavigationController.viewControllers {
-            if let forecastSummaryViewController = viewController as? ForecastSummaryViewController {
-                forecastSummaryViewController.networkService = networkService
-            }
-        }
-        window.rootViewController = mainNavigationController
-        self.window = window
-        self.mainNavigationController = mainNavigationController
-        self.networkService = networkService
-    }
+    var navigationController: UINavigationController?
+    
+    private let factory = DependencyFactory()
 
     func start() {
-        window.makeKeyAndVisible()
+        guard let navigationController = navigationController else { return }
+        let vc = factory.makeForecastSummaryViewController(coordinator: self)
+        navigationController.viewControllers = [vc]
     }
 }
