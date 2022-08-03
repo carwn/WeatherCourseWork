@@ -42,13 +42,7 @@ class CurrentWeatherViewController: UIViewController {
     }
     
     private func timeString(from date: Date?) -> String? {
-        guard let date = date else {
-            return nil
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = Calendar.current.dateComponents([.timeZone], from: date).timeZone
-        return dateFormatter.string(from: date)
+        date?.timeString
     }
     
     private func dateString(from date: Date?) -> String? {
