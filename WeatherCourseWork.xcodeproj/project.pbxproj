@@ -15,6 +15,7 @@
 		6D8B0ED028995D45002DBE9A /* SettingsManagerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ECF28995D45002DBE9A /* SettingsManagerOption.swift */; };
 		6D8B0ED4289A22C4002DBE9A /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */; };
 		6D8B0ED5289A22C4002DBE9A /* OptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */; };
+		6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */; };
 		6DB0AA58287FAEA9005159D0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */; };
 		6DB0AA5C287FC4E5005159D0 /* ForecastSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */; };
 		6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF75805287E9DA300C8E111 /* CurrentWind.swift */; };
@@ -81,6 +82,7 @@
 		6D8B0ECF28995D45002DBE9A /* SettingsManagerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManagerOption.swift; sourceTree = "<group>"; };
 		6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionViewController.xib; sourceTree = "<group>"; };
+		6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colors.swift"; sourceTree = "<group>"; };
 		6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryPresenter.swift; sourceTree = "<group>"; };
 		6DF75805287E9DA300C8E111 /* CurrentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWind.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				6DFD16A3287BDCDD0001B884 /* UIAlertController+infoAlert.swift */,
 				6DFD16FD287D347D0001B884 /* UIViewController+showError.swift */,
+				6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				6DFD16D7287D05AC0001B884 /* Direction.swift in Sources */,
 				6DFD1708287E8BCC0001B884 /* CurrentCondition.swift in Sources */,
 				6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */,
+				6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */,
 				6DFD16D4287D05AC0001B884 /* AirAndPollen.swift in Sources */,
 				6DFD16E1287D096B0001B884 /* DailyForecastTableViewCell.swift in Sources */,
 				6DF75808287E9DCD00C8E111 /* CurrentWindGust.swift in Sources */,

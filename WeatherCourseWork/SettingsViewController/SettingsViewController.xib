@@ -36,7 +36,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgx-AM-kZC">
                             <rect key="frame" x="20" y="27" width="320" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                            <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" name="AlmostBlackColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-WL-Z2c">
@@ -56,7 +56,7 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <color key="baseForegroundColor" red="0.9137254901960784" green="0.93333333333333335" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="baseForegroundColor" name="AlmostWhiteColor"/>
                                 <color key="baseBackgroundColor" name="AppOrangeColor"/>
                             </buttonConfiguration>
                             <userDefinedRuntimeAttributes>
@@ -111,6 +111,12 @@
         <image name="cloud1" width="246" height="58"/>
         <image name="cloud2" width="180" height="95"/>
         <image name="cloud3" width="217" height="65"/>
+        <namedColor name="AlmostBlackColor">
+            <color red="0.15294117647058825" green="0.15294117647058825" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AlmostWhiteColor">
+            <color red="0.9137254901960784" green="0.93333333333333335" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppMainColor">
             <color red="0.12549019607843137" green="0.30588235294117649" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

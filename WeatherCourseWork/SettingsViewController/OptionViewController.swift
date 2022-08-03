@@ -12,6 +12,12 @@ class OptionViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.almostWhiteColor], for: .selected)
+        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.almostBlackColor], for: .normal)
+    }
+    
     func configure<T: SettingsManagerOption>(_ settingsManagerOption: T) {
         titleLabel.text = T.title
         segmentedControl.removeAllSegments()
