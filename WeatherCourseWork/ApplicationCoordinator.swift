@@ -26,7 +26,10 @@ final class ApplicationCoordinator {
         navigationController.present(vc, animated: true)
     }
     
-    func dismissSettings() {
+    func dismissSettings(needReloadForecastSummary: Bool) {
+        if needReloadForecastSummary {
+            reloadForecastSummary()
+        }
         guard
             let navigationController = navigationController,
             navigationController.visibleViewController is SettingsViewController
@@ -34,5 +37,21 @@ final class ApplicationCoordinator {
             return
         }
         navigationController.visibleViewController?.dismiss(animated: true)
+    }
+    
+    private var forecastSummaryPresenter: ForecastSummaryPresenter? {
+        guard let navigationController = navigationController else {
+            return nil
+        }
+        for vc in navigationController.viewControllers {
+            if let vc = vc as? ForecastSummaryViewController {
+                return vc.presenter
+            }
+        }
+        return nil
+    }
+    
+    private func reloadForecastSummary() {
+        forecastSummaryPresenter?.reloadForecasts()
     }
 }
