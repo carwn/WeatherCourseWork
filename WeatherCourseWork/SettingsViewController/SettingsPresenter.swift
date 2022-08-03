@@ -17,6 +17,16 @@ class SettingsPresenter {
         self.view = view
     }
     
+    func viewDidLoad() {
+        guard let view = view else {
+            return
+        }
+        view.addOption(SettingsManager.shared.temperature)
+        view.addOption(SettingsManager.shared.windSpeed)
+        view.addOption(SettingsManager.shared.time)
+        view.addOption(SettingsManager.shared.notifications)
+    }
+    
     func setSettingsButtonPressed() {
         coordinator.dismissSettings()
     }

@@ -13,6 +13,8 @@
 		6D8B0ECC2898EE70002DBE9A /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */; };
 		6D8B0ECE28995831002DBE9A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ECD28995831002DBE9A /* SettingsManager.swift */; };
 		6D8B0ED028995D45002DBE9A /* SettingsManagerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ECF28995D45002DBE9A /* SettingsManagerOption.swift */; };
+		6D8B0ED4289A22C4002DBE9A /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */; };
+		6D8B0ED5289A22C4002DBE9A /* OptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */; };
 		6DB0AA58287FAEA9005159D0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */; };
 		6DB0AA5C287FC4E5005159D0 /* ForecastSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */; };
 		6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF75805287E9DA300C8E111 /* CurrentWind.swift */; };
@@ -77,6 +79,8 @@
 		6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		6D8B0ECD28995831002DBE9A /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		6D8B0ECF28995D45002DBE9A /* SettingsManagerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManagerOption.swift; sourceTree = "<group>"; };
+		6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
+		6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionViewController.xib; sourceTree = "<group>"; };
 		6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryPresenter.swift; sourceTree = "<group>"; };
 		6DF75805287E9DA300C8E111 /* CurrentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWind.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */,
 				6D8B0EC72898EE58002DBE9A /* SettingsViewController.swift */,
 				6D8B0EC82898EE58002DBE9A /* SettingsViewController.xib */,
+				6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */,
+				6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 				6DFD1666287B21080001B884 /* Assets.xcassets in Resources */,
 				6DFD1661287B21080001B884 /* Main.storyboard in Resources */,
 				6DFD1704287D5B550001B884 /* HourForecastCollectionViewCell.xib in Resources */,
+				6D8B0ED5289A22C4002DBE9A /* OptionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +415,7 @@
 				6D8B0EC92898EE58002DBE9A /* SettingsViewController.swift in Sources */,
 				6DFD1698287BD4270001B884 /* NetworkServiceError.swift in Sources */,
 				6DFD16A4287BDCDD0001B884 /* UIAlertController+infoAlert.swift in Sources */,
+				6D8B0ED4289A22C4002DBE9A /* OptionViewController.swift in Sources */,
 				6D19929D2898C32800E337FD /* DependencyFactory.swift in Sources */,
 				6DFD16CE287D05AC0001B884 /* Headline.swift in Sources */,
 				6DFD165E287B21080001B884 /* ForecastSummaryViewController.swift in Sources */,

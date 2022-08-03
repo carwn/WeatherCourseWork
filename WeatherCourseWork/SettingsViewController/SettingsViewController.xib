@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="WeatherCourseWork" customModuleProvider="target">
             <connections>
+                <outlet property="optionsStack" destination="4BO-WL-Z2c" id="mhb-bS-qcG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +30,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud3" translatesAutoresizingMaskIntoConstraints="NO" id="wba-Cf-Ew2">
                     <rect key="frame" x="98.5" y="702" width="217" height="65"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-Ps-vFL">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-Ps-vFL">
                     <rect key="frame" x="27" y="340" width="360" height="216"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgx-AM-kZC">
@@ -38,13 +39,10 @@
                             <color key="textColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-WL-Z2c">
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-WL-Z2c">
                             <rect key="frame" x="20" y="63" width="310" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="KKf-Y6-P4c"/>
-                            </constraints>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-zj-eHR">
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kw3-zj-eHR">
                             <rect key="frame" x="35" y="160" width="290" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="0Sv-xF-FJc"/>

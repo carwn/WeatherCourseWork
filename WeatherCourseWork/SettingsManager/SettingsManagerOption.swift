@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol SettingsManagerOption: CaseIterable {
+protocol SettingsManagerOption: Equatable, CaseIterable {
     static var key: String { get }
+    static var title: String { get }
     var title: String { get }
 }
 
@@ -19,6 +20,10 @@ extension SettingsManager {
         
         static var key: String {
             "temperature"
+        }
+        
+        static var title: String {
+            "Температура"
         }
         
         var title: String {
@@ -38,6 +43,10 @@ extension SettingsManager {
             "windSpeed"
         }
         
+        static var title: String {
+            "Скорость ветра"
+        }
+        
         var title: String {
             switch self {
             case .miles:
@@ -55,6 +64,10 @@ extension SettingsManager {
             "time"
         }
         
+        static var title: String {
+            "Формат времени"
+        }
+        
         var title: String {
             switch self {
             case .twelve:
@@ -70,6 +83,10 @@ extension SettingsManager {
         
         static var key: String {
             "notifications"
+        }
+        
+        static var title: String {
+            "Уведомления"
         }
         
         var title: String {

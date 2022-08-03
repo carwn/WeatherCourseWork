@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionViewController" customModule="WeatherCourseWork" customModuleProvider="target">
+            <connections>
+                <outlet property="segmentedControl" destination="EdI-zu-Vjw" id="v3n-2t-TSr"/>
+                <outlet property="titleLabel" destination="gnl-0A-KVa" id="FE8-ed-BKm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnl-0A-KVa">
+                    <rect key="frame" x="0.0" y="0.0" width="39.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.53725490196078429" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EdI-zu-Vjw">
+                    <rect key="frame" x="334" y="0.0" width="80" height="31"/>
+                    <color key="backgroundColor" red="0.99607843137254903" green="0.92941176470588238" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="d0y-Eb-pDR"/>
+                        <constraint firstAttribute="width" constant="80" id="vHD-gh-mkD"/>
+                    </constraints>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentedControlValueChanged:" destination="-1" eventType="valueChanged" id="eoD-kv-BRH"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EdI-zu-Vjw" secondAttribute="trailing" id="5da-3l-OSA"/>
+                <constraint firstItem="gnl-0A-KVa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lda-8b-WRD"/>
+                <constraint firstItem="EdI-zu-Vjw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="WT5-mR-asQ"/>
+                <constraint firstItem="gnl-0A-KVa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZxT-Yq-iRf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gnl-0A-KVa" secondAttribute="bottom" id="dZx-q4-CDW"/>
+                <constraint firstItem="EdI-zu-Vjw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gnl-0A-KVa" secondAttribute="trailing" constant="20" id="khG-zT-YNh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="134"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

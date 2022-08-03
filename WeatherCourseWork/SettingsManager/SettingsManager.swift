@@ -29,7 +29,7 @@ class SettingsManager {
             if let rawValue = getValue(forKey: WindSpeed.key), let value = WindSpeed(rawValue: rawValue) {
                 return value
             } else {
-                return .kilometers
+                return .miles
             }
         }
         set {
