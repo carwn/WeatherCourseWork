@@ -16,6 +16,7 @@
 		6D8B0ED4289A22C4002DBE9A /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */; };
 		6D8B0ED5289A22C4002DBE9A /* OptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */; };
 		6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */; };
+		6D8B0ED9289A6BCA002DBE9A /* MetricImperialValue+value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED8289A6BCA002DBE9A /* MetricImperialValue+value.swift */; };
 		6DB0AA58287FAEA9005159D0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */; };
 		6DB0AA5C287FC4E5005159D0 /* ForecastSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */; };
 		6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF75805287E9DA300C8E111 /* CurrentWind.swift */; };
@@ -55,7 +56,7 @@
 		6DFD1700287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD16FF287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift */; };
 		6DFD1703287D5B550001B884 /* HourForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1701287D5B550001B884 /* HourForecastCollectionViewCell.swift */; };
 		6DFD1704287D5B550001B884 /* HourForecastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD1702287D5B550001B884 /* HourForecastCollectionViewCell.xib */; };
-		6DFD1706287E8BC20001B884 /* ApparentTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1705287E8BC20001B884 /* ApparentTemperature.swift */; };
+		6DFD1706287E8BC20001B884 /* MetricImperialValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1705287E8BC20001B884 /* MetricImperialValue.swift */; };
 		6DFD1708287E8BCC0001B884 /* CurrentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1707287E8BCC0001B884 /* CurrentCondition.swift */; };
 		6DFD170A287E8BDE0001B884 /* JSONSchemaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1709287E8BDE0001B884 /* JSONSchemaSupport.swift */; };
 		6DFD170C287E8BEA0001B884 /* PastHourRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD170B287E8BEA0001B884 /* PastHourRange.swift */; };
@@ -83,6 +84,7 @@
 		6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionViewController.xib; sourceTree = "<group>"; };
 		6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colors.swift"; sourceTree = "<group>"; };
+		6D8B0ED8289A6BCA002DBE9A /* MetricImperialValue+value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetricImperialValue+value.swift"; sourceTree = "<group>"; };
 		6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryPresenter.swift; sourceTree = "<group>"; };
 		6DF75805287E9DA300C8E111 /* CurrentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWind.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		6DFD16FF287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForecastSummaryViewController+collectionView.swift"; sourceTree = "<group>"; };
 		6DFD1701287D5B550001B884 /* HourForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		6DFD1702287D5B550001B884 /* HourForecastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourForecastCollectionViewCell.xib; sourceTree = "<group>"; };
-		6DFD1705287E8BC20001B884 /* ApparentTemperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApparentTemperature.swift; sourceTree = "<group>"; };
+		6DFD1705287E8BC20001B884 /* MetricImperialValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetricImperialValue.swift; sourceTree = "<group>"; };
 		6DFD1707287E8BCC0001B884 /* CurrentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCondition.swift; sourceTree = "<group>"; };
 		6DFD1709287E8BDE0001B884 /* JSONSchemaSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSchemaSupport.swift; sourceTree = "<group>"; };
 		6DFD170B287E8BEA0001B884 /* PastHourRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastHourRange.swift; sourceTree = "<group>"; };
@@ -278,7 +280,8 @@
 				6DFD16F7287D2DC10001B884 /* HourlyForecastElement.swift */,
 				6DFD16FB287D2ED50001B884 /* WindGust.swift */,
 				6DF75807287E9DCD00C8E111 /* CurrentWindGust.swift */,
-				6DFD1705287E8BC20001B884 /* ApparentTemperature.swift */,
+				6DFD1705287E8BC20001B884 /* MetricImperialValue.swift */,
+				6D8B0ED8289A6BCA002DBE9A /* MetricImperialValue+value.swift */,
 				6DFD1707287E8BCC0001B884 /* CurrentCondition.swift */,
 				6DFD1709287E8BDE0001B884 /* JSONSchemaSupport.swift */,
 				6DFD170B287E8BEA0001B884 /* PastHourRange.swift */,
@@ -413,7 +416,7 @@
 				6DF75823287EF9BB00C8E111 /* Country.swift in Sources */,
 				6DFD170C287E8BEA0001B884 /* PastHourRange.swift in Sources */,
 				6DFD16CB287D05AC0001B884 /* Moon.swift in Sources */,
-				6DFD1706287E8BC20001B884 /* ApparentTemperature.swift in Sources */,
+				6DFD1706287E8BC20001B884 /* MetricImperialValue.swift in Sources */,
 				6DFD170E287E8BF80001B884 /* PressureTendency.swift in Sources */,
 				6D8B0EC92898EE58002DBE9A /* SettingsViewController.swift in Sources */,
 				6DFD1698287BD4270001B884 /* NetworkServiceError.swift in Sources */,
@@ -432,6 +435,7 @@
 				6DFD1710287E8C030001B884 /* TemperatureSummary.swift in Sources */,
 				6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */,
 				6DFD165A287B21080001B884 /* AppDelegate.swift in Sources */,
+				6D8B0ED9289A6BCA002DBE9A /* MetricImperialValue+value.swift in Sources */,
 				6DFD16DC287D08FF0001B884 /* ForecastSummaryViewController+tableView.swift in Sources */,
 				6DFD16D6287D05AC0001B884 /* DegreeDaySummary.swift in Sources */,
 				6DFD16CA287D05AC0001B884 /* Value.swift in Sources */,

@@ -6,7 +6,7 @@
 import Foundation
 
 struct CurrentWind: Codable {
-    let speed: ApparentTemperature
+    let speed: MetricImperialValue
     let direction: Direction
 
     enum CodingKeys: String, CodingKey {

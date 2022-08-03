@@ -6,7 +6,7 @@
 import Foundation
 
 struct CurrentWindGust: Codable {
-    let speed: ApparentTemperature
+    let speed: MetricImperialValue
 
     enum CodingKeys: String, CodingKey {
         case speed = "Speed"

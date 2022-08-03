@@ -86,7 +86,7 @@ class ForecastSummaryPresenter {
         coordinator.openSettings()
     }
     
-    private func requestForecasts() {
+    private func requestForecasts(daily: Bool = true, hourly: Bool = true, current: Bool = true) {
         guard let location = location else {
             dailyForecast = nil
             horlyForecast = nil
@@ -97,54 +97,60 @@ class ForecastSummaryPresenter {
         view?.startLoadingIndication()
         let group = DispatchGroup()
         
-        group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
-            self.networkService.dailyForecast(location: location, queue: .main) { [weak self] result in
+        if daily {
+            group.enter()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 guard let self = self else { return }
-                switch result {
-                case .success(let weather):
-                    self.dailyForecast = weather
-                case .failure(let error):
-                    self.dailyForecast = nil
-                    self.view?.showError(error)
-                    print(error)
+                self.networkService.dailyForecast(location: location, queue: .main) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let weather):
+                        self.dailyForecast = weather
+                    case .failure(let error):
+                        self.dailyForecast = nil
+                        self.view?.showError(error)
+                        print(error)
+                    }
+                    group.leave()
                 }
-                group.leave()
             }
         }
         
-        group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
-            self.networkService.hourlyForecast(location: location, queue: .main) { [weak self] result in
+        if hourly {
+            group.enter()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 guard let self = self else { return }
-                switch result {
-                case .success(let weather):
-                    self.horlyForecast = weather
-                case .failure(let error):
-                    self.horlyForecast = nil
-                    self.view?.showError(error)
-                    print(error)
+                self.networkService.hourlyForecast(location: location, queue: .main) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let weather):
+                        self.horlyForecast = weather
+                    case .failure(let error):
+                        self.horlyForecast = nil
+                        self.view?.showError(error)
+                        print(error)
+                    }
+                    group.leave()
                 }
-                group.leave()
             }
         }
         
-        group.enter()
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
-            self.networkService.currentCondition(location: location, queue: .main) { [weak self] result in
+        if current {
+            group.enter()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
                 guard let self = self else { return }
-                switch result {
-                case .success(let weather):
-                    self.currentConditions = weather
-                case .failure(let error):
-                    self.currentConditions = nil
-                    self.view?.showError(error)
-                    print(error)
+                self.networkService.currentCondition(location: location, queue: .main) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let weather):
+                        self.currentConditions = weather
+                    case .failure(let error):
+                        self.currentConditions = nil
+                        self.view?.showError(error)
+                        print(error)
+                    }
+                    group.leave()
                 }
-                group.leave()
             }
         }
         

@@ -76,7 +76,7 @@ class NetworkService {
         let queryItems = [URLQueryItem(name: "apikey", value: apiKey),
                           URLQueryItem(name: "language", value: "ru-ru"),
                           URLQueryItem(name: "details", value: "true"),
-                          URLQueryItem(name: "metric", value: "true")]
+                          URLQueryItem(name: "metric", value: SettingsManager.shared.temperature.metric)]
         var urlComponents = URLComponents(string: "\(type.baseURL)\(accuWeatherID)")
         urlComponents?.queryItems = queryItems
         return urlComponents?.url
@@ -106,6 +106,17 @@ private extension NetworkService {
             case .current:
                 return "http://dataservice.accuweather.com/currentconditions/v1/"
             }
+        }
+    }
+}
+
+private extension SettingsManager.Temperature {
+    var metric: String {
+        switch self {
+        case .celsius:
+            return "true"
+        case .fahrenheit:
+            return "false"
         }
     }
 }

@@ -27,12 +27,12 @@ class CurrentWeatherViewController: UIViewController {
     }
     
     func setup(currentCondition: CurrentCondition?) {
-        temperatureSummaryLabel.text = "\(currentCondition?.temperatureSummary.past24HourRange.minimum.metric.description ?? "-")/\(currentCondition?.temperatureSummary.past24HourRange.maximum.metric.description ?? "-")"
-        currentTemperatureLabel.text = currentCondition?.temperature.metric.description ?? "-"
+        temperatureSummaryLabel.text = "\(currentCondition?.temperatureSummary.past24HourRange.minimum.temperatureValue.description ?? "-")/\(currentCondition?.temperatureSummary.past24HourRange.maximum.temperatureValue.description ?? "-")"
+        currentTemperatureLabel.text = currentCondition?.temperature.temperatureValue.description ?? "-"
         weatherDescriptionLabel.text = currentCondition?.weatherText ?? "-"
         unknowParameterLabel.text = "-"
-        windLabel.text = currentCondition?.wind.speed.metric.description ?? "-"
-        precipitationLabel.text = currentCondition?.precipitationSummary["Precipitation"]?.metric.description ?? "-"
+        windLabel.text = currentCondition?.wind.speed.windValue.description ?? "-"
+        precipitationLabel.text = currentCondition?.precipitationSummary["Precipitation"]?.windValue.description ?? "-"
         dateLabel.text = dateString(from: currentCondition?.localObservationDateTime) ?? "-"
     }
     

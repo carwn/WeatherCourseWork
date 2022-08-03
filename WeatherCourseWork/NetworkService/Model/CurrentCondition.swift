@@ -13,21 +13,21 @@ struct CurrentCondition: Codable {
     let hasPrecipitation: Bool
     let precipitationType: JSONNull?
     let isDayTime: Bool
-    let temperature, realFeelTemperature, realFeelTemperatureShade: ApparentTemperature
+    let temperature, realFeelTemperature, realFeelTemperatureShade: MetricImperialValue
     let relativeHumidity, indoorRelativeHumidity: Int
-    let dewPoint: ApparentTemperature
+    let dewPoint: MetricImperialValue
     let wind: CurrentWind
     let windGust: CurrentWindGust
     let uvIndex: Int
     let uvIndexText: String
-    let visibility: ApparentTemperature
+    let visibility: MetricImperialValue
     let obstructionsToVisibility: String
     let cloudCover: Int
-    let ceiling, pressure: ApparentTemperature
+    let ceiling, pressure: MetricImperialValue
     let pressureTendency: PressureTendency
-    let past24HourTemperatureDeparture, apparentTemperature, windChillTemperature, wetBulbTemperature: ApparentTemperature
-    let precip1Hr: ApparentTemperature
-    let precipitationSummary: [String: ApparentTemperature]
+    let past24HourTemperatureDeparture, apparentTemperature, windChillTemperature, wetBulbTemperature: MetricImperialValue
+    let precip1Hr: MetricImperialValue
+    let precipitationSummary: [String: MetricImperialValue]
     let temperatureSummary: TemperatureSummary
     let mobileLink, link: String
 

@@ -6,7 +6,7 @@
 import Foundation
 
 struct PastHourRange: Codable {
-    let minimum, maximum: ApparentTemperature
+    let minimum, maximum: MetricImperialValue
 
     enum CodingKeys: String, CodingKey {
         case minimum = "Minimum"
