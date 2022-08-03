@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        optionsStack.arrangedSubviews.forEach { optionsStack.removeArrangedSubview($0) }
         presenter?.viewDidLoad()
     }
     
