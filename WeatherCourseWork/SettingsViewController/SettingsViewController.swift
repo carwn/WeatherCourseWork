@@ -18,12 +18,12 @@ class SettingsViewController: UIViewController {
         presenter?.viewDidLoad()
     }
     
-    func addOption<T: SettingsManagerOption>(_ option: T) {
+    func addOption<T: SettingsManagerOption>(settingsManagerOption: T, updateOptionClosure: @escaping (Int) -> ()) {
         let vc = OptionViewController(nibName: "OptionViewController", bundle: nil)
         addChild(vc)
         optionsStack.addArrangedSubview(vc.view)
         vc.didMove(toParent: self)
-        vc.configure(option)
+        vc.configure(settingsManagerOption: settingsManagerOption, updateOptionClosure: updateOptionClosure)
     }
     
     @IBAction func setSettingsButtonPressed(_ sender: Any) {
