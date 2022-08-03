@@ -7,14 +7,14 @@ import Foundation
 
 struct Sun: Codable {
     let rise: Date
-    let epochRise: Int
+//    let epochRise: Int
     let sunSet: Date
-    let epochSet: Int
+//    let epochSet: Int
 
     enum CodingKeys: String, CodingKey {
         case rise = "Rise"
-        case epochRise = "EpochRise"
+//        case epochRise = "EpochRise"
         case sunSet = "Set"
-        case epochSet = "EpochSet"
+//        case epochSet = "EpochSet"
     }
 }
