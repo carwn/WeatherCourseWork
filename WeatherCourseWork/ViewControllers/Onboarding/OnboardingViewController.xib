@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCj-RP-0Zw">
-                    <rect key="frame" x="90.5" y="752" width="306.5" height="33"/>
+                    <rect key="frame" x="90.5" y="786" width="306.5" height="33"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
                         <attributedString key="attributedTitle">
@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS0-la-9lw">
-                    <rect key="frame" x="17" y="687" width="380" height="40"/>
+                    <rect key="frame" x="17" y="721" width="380" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="TrP-6N-Xpd"/>
                     </constraints>
@@ -63,21 +63,57 @@
                         <action selector="useLocationButtonPressed:" destination="-1" eventType="touchUpInside" id="Y4z-Uj-Tnf"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingImage" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-Px-4R5">
+                    <rect key="frame" x="111" y="148" width="219" height="196"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8HM-oM-pUN">
+                    <rect key="frame" x="27" y="400" width="360" height="57.5"/>
+                    <string key="text">Разрешить приложению  Weather использовать данные 
+о местоположении вашего устройства </string>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <color key="textColor" name="AlmostWhiteColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чтобы получить более точные прогнозы погоды во время движения или путешествия" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4F-Vi-SgU">
+                    <rect key="frame" x="27" y="513.5" width="360" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Чтобы получить более точные прогнозы погоды во время движения или путешествия" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-Kw-Cc7">
+                    <rect key="frame" x="27" y="561" width="360" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="AppMainColor"/>
             <constraints>
+                <constraint firstItem="C4F-Vi-SgU" firstAttribute="leading" secondItem="8HM-oM-pUN" secondAttribute="leading" id="1im-7I-Fg2"/>
+                <constraint firstItem="ssC-Px-4R5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="148" id="50w-TJ-uaA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ssC-Px-4R5" secondAttribute="trailing" constant="84" id="8G5-sM-eWG"/>
+                <constraint firstItem="8HM-oM-pUN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="Aj9-Ma-nIF"/>
                 <constraint firstItem="DCj-RP-0Zw" firstAttribute="top" secondItem="qS0-la-9lw" secondAttribute="bottom" constant="25" id="BtB-WE-FFl"/>
+                <constraint firstItem="VHM-Kw-Cc7" firstAttribute="leading" secondItem="8HM-oM-pUN" secondAttribute="leading" id="CjW-RD-7Sc"/>
+                <constraint firstItem="ssC-Px-4R5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="111" id="Dhb-vN-2xV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qS0-la-9lw" secondAttribute="trailing" constant="17" id="HUu-Nx-nJ0"/>
                 <constraint firstItem="qS0-la-9lw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="MXU-Yj-L0x"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DCj-RP-0Zw" secondAttribute="bottom" constant="77" id="N5M-Wt-Xjg"/>
+                <constraint firstAttribute="bottom" secondItem="DCj-RP-0Zw" secondAttribute="bottom" constant="77" id="N5M-Wt-Xjg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" constant="27" id="QHO-EX-H7Z"/>
+                <constraint firstItem="C4F-Vi-SgU" firstAttribute="top" secondItem="8HM-oM-pUN" secondAttribute="bottom" constant="56" id="SGK-zd-cdr"/>
                 <constraint firstItem="DCj-RP-0Zw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="VnX-Xt-9cr"/>
+                <constraint firstItem="VHM-Kw-Cc7" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" id="a3h-sd-iOf"/>
+                <constraint firstItem="VHM-Kw-Cc7" firstAttribute="top" secondItem="C4F-Vi-SgU" secondAttribute="bottom" constant="14" id="f8E-Lw-56h"/>
+                <constraint firstItem="8HM-oM-pUN" firstAttribute="top" secondItem="ssC-Px-4R5" secondAttribute="bottom" constant="56" id="pPI-DX-HL3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DCj-RP-0Zw" secondAttribute="trailing" constant="17" id="tjU-sQ-ehb"/>
+                <constraint firstItem="C4F-Vi-SgU" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" id="wMH-Pp-7xI"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </view>
     </objects>
     <resources>
+        <image name="onboardingImage" width="180" height="196"/>
         <namedColor name="AlmostWhiteColor">
             <color red="0.9137254901960784" green="0.93333333333333335" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
