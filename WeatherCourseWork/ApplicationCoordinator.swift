@@ -15,8 +15,13 @@ final class ApplicationCoordinator {
 
     func start() {
         guard let navigationController = navigationController else { return }
-        let vc = factory.makeForecastSummaryViewController(coordinator: self)
-        navigationController.viewControllers = [vc]
+        if SettingsManager.shared.needOnboarding {
+            let vc = factory.makeOnboardingViewController(coordinator: self)
+            navigationController.viewControllers = [vc]
+        } else {
+            let vc = factory.makeForecastSummaryViewController(coordinator: self)
+            navigationController.viewControllers = [vc]
+        }
     }
     
     func openSettings() {
@@ -30,9 +35,18 @@ final class ApplicationCoordinator {
         if needReloadForecastSummary {
             reloadForecastSummary()
         }
+        dismissModal(vcType: SettingsViewController.self)
+    }
+    
+    func dismissOnboard() {
+        let vc = factory.makeForecastSummaryViewController(coordinator: self)
+        navigationController?.setViewControllers([vc], animated: true)
+    }
+    
+    private func dismissModal<T: UIViewController>(vcType: T.Type) {
         guard
             let navigationController = navigationController,
-            navigationController.visibleViewController is SettingsViewController
+            navigationController.visibleViewController is T
         else {
             return
         }

@@ -18,6 +18,9 @@
 		6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */; };
 		6D8B0ED9289A6BCA002DBE9A /* MetricImperialValue+value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ED8289A6BCA002DBE9A /* MetricImperialValue+value.swift */; };
 		6D8B0EDB289A720B002DBE9A /* Date+timeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EDA289A720B002DBE9A /* Date+timeString.swift */; };
+		6D8B0EE0289B5D20002DBE9A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EDE289B5D20002DBE9A /* OnboardingViewController.swift */; };
+		6D8B0EE1289B5D20002DBE9A /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B0EDF289B5D20002DBE9A /* OnboardingViewController.xib */; };
+		6D8B0EE3289B5D31002DBE9A /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EE2289B5D31002DBE9A /* OnboardingPresenter.swift */; };
 		6DB0AA58287FAEA9005159D0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */; };
 		6DB0AA5C287FC4E5005159D0 /* ForecastSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */; };
 		6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF75805287E9DA300C8E111 /* CurrentWind.swift */; };
@@ -27,7 +30,7 @@
 		6DFD165A287B21080001B884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1659287B21080001B884 /* AppDelegate.swift */; };
 		6DFD165C287B21080001B884 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD165B287B21080001B884 /* SceneDelegate.swift */; };
 		6DFD165E287B21080001B884 /* ForecastSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD165D287B21080001B884 /* ForecastSummaryViewController.swift */; };
-		6DFD1661287B21080001B884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD165F287B21080001B884 /* Main.storyboard */; };
+		6DFD1661287B21080001B884 /* ForecastSummary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD165F287B21080001B884 /* ForecastSummary.storyboard */; };
 		6DFD1664287B21080001B884 /* WeatherCourseWork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DFD1662287B21080001B884 /* WeatherCourseWork.xcdatamodeld */; };
 		6DFD1666287B21080001B884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD1665287B21080001B884 /* Assets.xcassets */; };
 		6DFD1669287B21080001B884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFD1667287B21080001B884 /* LaunchScreen.storyboard */; };
@@ -87,6 +90,9 @@
 		6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+colors.swift"; sourceTree = "<group>"; };
 		6D8B0ED8289A6BCA002DBE9A /* MetricImperialValue+value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetricImperialValue+value.swift"; sourceTree = "<group>"; };
 		6D8B0EDA289A720B002DBE9A /* Date+timeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeString.swift"; sourceTree = "<group>"; };
+		6D8B0EDE289B5D20002DBE9A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		6D8B0EDF289B5D20002DBE9A /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		6D8B0EE2289B5D31002DBE9A /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryPresenter.swift; sourceTree = "<group>"; };
 		6DF75805287E9DA300C8E111 /* CurrentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWind.swift; sourceTree = "<group>"; };
@@ -97,7 +103,7 @@
 		6DFD1659287B21080001B884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DFD165B287B21080001B884 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6DFD165D287B21080001B884 /* ForecastSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryViewController.swift; sourceTree = "<group>"; };
-		6DFD1660287B21080001B884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6DFD1660287B21080001B884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ForecastSummary.storyboard; sourceTree = "<group>"; };
 		6DFD1663287B21080001B884 /* WeatherCourseWork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherCourseWork.xcdatamodel; sourceTree = "<group>"; };
 		6DFD1665287B21080001B884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DFD1668287B21080001B884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,7 +161,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6D8B0EC62898EE33002DBE9A /* SettingsViewController */ = {
+		6D8B0EC62898EE33002DBE9A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */,
@@ -164,7 +170,7 @@
 				6D8B0ED2289A22C4002DBE9A /* OptionViewController.swift */,
 				6D8B0ED3289A22C4002DBE9A /* OptionViewController.xib */,
 			);
-			path = SettingsViewController;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		6D8B0ED128995D5A002DBE9A /* SettingsManager */ = {
@@ -174,6 +180,26 @@
 				6D8B0ECF28995D45002DBE9A /* SettingsManagerOption.swift */,
 			);
 			path = SettingsManager;
+			sourceTree = "<group>";
+		};
+		6D8B0EDC289B5CD7002DBE9A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6D8B0EE2289B5D31002DBE9A /* OnboardingPresenter.swift */,
+				6D8B0EDE289B5D20002DBE9A /* OnboardingViewController.swift */,
+				6D8B0EDF289B5D20002DBE9A /* OnboardingViewController.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6D8B0EDD289B5CFE002DBE9A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6DFD16DA287D08F30001B884 /* ForecastSummary */,
+				6D8B0EC62898EE33002DBE9A /* Settings */,
+				6D8B0EDC289B5CD7002DBE9A /* Onboarding */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		6DF7580E287ECACE00C8E111 /* DailyForecastTableView */ = {
@@ -221,9 +247,7 @@
 				6DFD165B287B21080001B884 /* SceneDelegate.swift */,
 				6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */,
 				6D19929C2898C32800E337FD /* DependencyFactory.swift */,
-				6DFD165F287B21080001B884 /* Main.storyboard */,
-				6DFD16DA287D08F30001B884 /* ForecastSummary */,
-				6D8B0EC62898EE33002DBE9A /* SettingsViewController */,
+				6D8B0EDD289B5CFE002DBE9A /* ViewControllers */,
 				6DFD168C287BC9D90001B884 /* NetworkService */,
 				6D8B0ED128995D5A002DBE9A /* SettingsManager */,
 				6DFD169F287BDBE60001B884 /* Extensions */,
@@ -301,6 +325,7 @@
 			children = (
 				6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */,
 				6DFD165D287B21080001B884 /* ForecastSummaryViewController.swift */,
+				6DFD165F287B21080001B884 /* ForecastSummary.storyboard */,
 				6DF7580E287ECACE00C8E111 /* DailyForecastTableView */,
 				6DF7580F287ECADE00C8E111 /* HorlyForecastCollectionView */,
 				6DF75809287EA04500C8E111 /* CurrentWeatherViewController.swift */,
@@ -393,9 +418,10 @@
 				6D8B0ECA2898EE58002DBE9A /* SettingsViewController.xib in Resources */,
 				6DFD1669287B21080001B884 /* LaunchScreen.storyboard in Resources */,
 				6DFD1666287B21080001B884 /* Assets.xcassets in Resources */,
-				6DFD1661287B21080001B884 /* Main.storyboard in Resources */,
+				6DFD1661287B21080001B884 /* ForecastSummary.storyboard in Resources */,
 				6DFD1704287D5B550001B884 /* HourForecastCollectionViewCell.xib in Resources */,
 				6D8B0ED5289A22C4002DBE9A /* OptionViewController.xib in Resources */,
+				6D8B0EE1289B5D20002DBE9A /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +478,7 @@
 				6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */,
 				6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */,
 				6DFD16D4287D05AC0001B884 /* AirAndPollen.swift in Sources */,
+				6D8B0EE0289B5D20002DBE9A /* OnboardingViewController.swift in Sources */,
 				6DFD16E1287D096B0001B884 /* DailyForecastTableViewCell.swift in Sources */,
 				6DF75808287E9DCD00C8E111 /* CurrentWindGust.swift in Sources */,
 				6DFD165C287B21080001B884 /* SceneDelegate.swift in Sources */,
@@ -459,6 +486,7 @@
 				6DFD16FC287D2ED50001B884 /* WindGust.swift in Sources */,
 				6DFD16D8287D05AC0001B884 /* Temperature.swift in Sources */,
 				6DFD1700287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift in Sources */,
+				6D8B0EE3289B5D31002DBE9A /* OnboardingPresenter.swift in Sources */,
 				6DF7580B287EA04500C8E111 /* CurrentWeatherViewController.swift in Sources */,
 				6D8B0ECC2898EE70002DBE9A /* SettingsPresenter.swift in Sources */,
 			);
@@ -483,12 +511,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6DFD165F287B21080001B884 /* Main.storyboard */ = {
+		6DFD165F287B21080001B884 /* ForecastSummary.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6DFD1660287B21080001B884 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ForecastSummary.storyboard;
 			sourceTree = "<group>";
 		};
 		6DFD1667287B21080001B884 /* LaunchScreen.storyboard */ = {
@@ -628,7 +656,6 @@
 				INFOPLIST_FILE = WeatherCourseWork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -657,7 +684,6 @@
 				INFOPLIST_FILE = WeatherCourseWork/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
