@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingViewController" customModule="WeatherCourseWork" customModuleProvider="target">
             <connections>
+                <outlet property="loadingIndicator" destination="Twz-ah-vUF" id="rRA-fr-wJa"/>
+                <outlet property="useLocationButton" destination="qS0-la-9lw" id="7sy-Qy-Yfh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,34 +37,43 @@
                         <action selector="dontUseLocationButtonPressed:" destination="-1" eventType="touchUpInside" id="GOG-3h-iX9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS0-la-9lw">
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9U-Xz-CYg">
                     <rect key="frame" x="17" y="721" width="380" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="TrP-6N-Xpd"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled">
-                        <attributedString key="attributedTitle">
-                            <fragment content="ИСПОЛЬЗОВАТЬ МЕСТОПОЛОЖЕНИЕ  УСТРОЙСТВА">
-                                <attributes>
-                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <font key="NSFont" size="12" name="SFPro-Medium"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                        <color key="baseForegroundColor" name="AlmostWhiteColor"/>
-                        <color key="baseBackgroundColor" name="AppOrangeColor"/>
-                    </buttonConfiguration>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="useLocationButtonPressed:" destination="-1" eventType="touchUpInside" id="Y4z-Uj-Tnf"/>
-                    </connections>
-                </button>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qS0-la-9lw">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="TrP-6N-Xpd"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="ИСПОЛЬЗОВАТЬ МЕСТОПОЛОЖЕНИЕ  УСТРОЙСТВА">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="12" name="SFPro-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="baseForegroundColor" name="AlmostWhiteColor"/>
+                                <color key="baseBackgroundColor" name="AppOrangeColor"/>
+                            </buttonConfiguration>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="useLocationButtonPressed:" destination="-1" eventType="touchUpInside" id="Y4z-Uj-Tnf"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Twz-ah-vUF">
+                            <rect key="frame" x="360" y="10" width="20" height="20"/>
+                            <color key="color" name="AlmostWhiteColor"/>
+                        </activityIndicatorView>
+                    </subviews>
+                </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingImage" translatesAutoresizingMaskIntoConstraints="NO" id="ssC-Px-4R5">
                     <rect key="frame" x="111" y="148" width="219" height="196"/>
                 </imageView>
@@ -94,17 +105,17 @@
                 <constraint firstItem="ssC-Px-4R5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="148" id="50w-TJ-uaA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ssC-Px-4R5" secondAttribute="trailing" constant="84" id="8G5-sM-eWG"/>
                 <constraint firstItem="8HM-oM-pUN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="Aj9-Ma-nIF"/>
-                <constraint firstItem="DCj-RP-0Zw" firstAttribute="top" secondItem="qS0-la-9lw" secondAttribute="bottom" constant="25" id="BtB-WE-FFl"/>
                 <constraint firstItem="VHM-Kw-Cc7" firstAttribute="leading" secondItem="8HM-oM-pUN" secondAttribute="leading" id="CjW-RD-7Sc"/>
                 <constraint firstItem="ssC-Px-4R5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="111" id="Dhb-vN-2xV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qS0-la-9lw" secondAttribute="trailing" constant="17" id="HUu-Nx-nJ0"/>
-                <constraint firstItem="qS0-la-9lw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="MXU-Yj-L0x"/>
+                <constraint firstItem="C9U-Xz-CYg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="Jzb-Y8-YT5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="C9U-Xz-CYg" secondAttribute="trailing" constant="17" id="Ky6-V8-DKQ"/>
                 <constraint firstAttribute="bottom" secondItem="DCj-RP-0Zw" secondAttribute="bottom" constant="77" id="N5M-Wt-Xjg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" constant="27" id="QHO-EX-H7Z"/>
                 <constraint firstItem="C4F-Vi-SgU" firstAttribute="top" secondItem="8HM-oM-pUN" secondAttribute="bottom" constant="56" id="SGK-zd-cdr"/>
                 <constraint firstItem="DCj-RP-0Zw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="17" id="VnX-Xt-9cr"/>
                 <constraint firstItem="VHM-Kw-Cc7" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" id="a3h-sd-iOf"/>
                 <constraint firstItem="VHM-Kw-Cc7" firstAttribute="top" secondItem="C4F-Vi-SgU" secondAttribute="bottom" constant="14" id="f8E-Lw-56h"/>
+                <constraint firstItem="DCj-RP-0Zw" firstAttribute="top" secondItem="C9U-Xz-CYg" secondAttribute="bottom" constant="25" id="h0d-TF-Vjz"/>
                 <constraint firstItem="8HM-oM-pUN" firstAttribute="top" secondItem="ssC-Px-4R5" secondAttribute="bottom" constant="56" id="pPI-DX-HL3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DCj-RP-0Zw" secondAttribute="trailing" constant="17" id="tjU-sQ-ehb"/>
                 <constraint firstItem="C4F-Vi-SgU" firstAttribute="trailing" secondItem="8HM-oM-pUN" secondAttribute="trailing" id="wMH-Pp-7xI"/>

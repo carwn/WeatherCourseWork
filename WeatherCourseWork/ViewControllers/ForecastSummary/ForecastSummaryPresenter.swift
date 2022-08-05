@@ -12,7 +12,6 @@ class ForecastSummaryPresenter {
     private let networkService: NetworkService
     private let coordinator: ApplicationCoordinator
     private weak var view: ForecastSummaryViewController?
-    private var forecastWasLoad = false
     
     init(networkService: NetworkService, coordinator: ApplicationCoordinator, view: ForecastSummaryViewController) {
         self.networkService = networkService
@@ -20,7 +19,7 @@ class ForecastSummaryPresenter {
         self.view = view
     }
     
-    private(set) var location: Location? {
+    var location: Location? {
         didSet {
             view?.locationDidUpdate()
             requestForecasts()
@@ -45,12 +44,6 @@ class ForecastSummaryPresenter {
     
     func reloadForecasts() {
         requestForecasts()
-    }
-    
-    func viewWillAppear() {
-        if !forecastWasLoad {
-            requestForecasts()
-        }
     }
     
     func searchLocation(searchString: String?) {
@@ -86,7 +79,7 @@ class ForecastSummaryPresenter {
         coordinator.openSettings()
     }
     
-    private func requestForecasts(daily: Bool = true, hourly: Bool = true, current: Bool = true) {
+    private func requestForecasts(daily: Bool = false, hourly: Bool = false, current: Bool = true) {
         guard let location = location else {
             dailyForecast = nil
             horlyForecast = nil
@@ -156,7 +149,6 @@ class ForecastSummaryPresenter {
         
         group.notify(queue: .main) { [weak self] in
             self?.view?.stopLoadingIndication()
-            self?.forecastWasLoad = true
         }
     }
 }

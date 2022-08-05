@@ -21,11 +21,6 @@ class ForecastSummaryViewController: UIViewController {
         hourlyForecastCollectionView.register(UINib(nibName: "HourForecastCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: String(describing: HourForecastCollectionViewCell.self))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter?.viewWillAppear()
-    }
-    
     @IBAction func selectLocationButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Введите город", message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
@@ -67,24 +62,29 @@ extension ForecastSummaryViewController {
     }
     
     func dailyForecastDidUpdate() {
+        guard isViewLoaded else { return }
         dailyForecastTableView.reloadData()
         currentWeatherViewController?.setup(dayTime: presenter?.dailyForecast?.dailyForecasts.first?.sun.rise,
                                             sunset: presenter?.dailyForecast?.dailyForecasts.first?.sun.sunSet)
     }
     
     func horlyForecastDidUpdate() {
+        guard isViewLoaded else { return }
         hourlyForecastCollectionView.reloadData()
     }
     
     func currentConditionsDidUpdate() {
+        guard isViewLoaded else { return }
         currentWeatherViewController?.setup(currentCondition: presenter?.currentConditions?.first)
     }
     
     func startLoadingIndication() {
+        guard isViewLoaded else { return }
         loadingIndicator.startAnimating()
     }
     
     func stopLoadingIndication() {
+        guard isViewLoaded else { return }
         loadingIndicator.stopAnimating()
     }
 }

@@ -68,7 +68,7 @@ class SettingsManager {
             if let value = getBoolValue(forKey: "needOnboarding") {
                 return value
             } else {
-                return false
+                return true
             }
         }
         set {

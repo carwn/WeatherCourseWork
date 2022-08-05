@@ -12,6 +12,11 @@ final class ApplicationCoordinator {
     var navigationController: UINavigationController?
     
     private let factory = DependencyFactory()
+    private var storedLocation: Location? {
+        didSet {
+            forecastSummaryPresenter?.location = storedLocation
+        }
+    }
 
     func start() {
         guard let navigationController = navigationController else { return }
@@ -19,7 +24,7 @@ final class ApplicationCoordinator {
             let vc = factory.makeOnboardingViewController(coordinator: self)
             navigationController.viewControllers = [vc]
         } else {
-            let vc = factory.makeForecastSummaryViewController(coordinator: self)
+            let vc = factory.makeForecastSummaryViewController(coordinator: self, location: storedLocation)
             navigationController.viewControllers = [vc]
         }
     }
@@ -39,8 +44,12 @@ final class ApplicationCoordinator {
     }
     
     func dismissOnboard() {
-        let vc = factory.makeForecastSummaryViewController(coordinator: self)
+        let vc = factory.makeForecastSummaryViewController(coordinator: self, location: storedLocation)
         navigationController?.setViewControllers([vc], animated: true)
+    }
+    
+    func setLocation(_ newLocation: Location) {
+        storedLocation = newLocation
     }
     
     private func dismissModal<T: UIViewController>(vcType: T.Type) {

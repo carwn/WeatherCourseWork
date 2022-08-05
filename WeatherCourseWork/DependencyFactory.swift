@@ -10,12 +10,14 @@ import UIKit
 class DependencyFactory {
     
     private let networkService = NetworkService()
+    private lazy var locationManager = LocationManager(networkService: networkService)
     
-    func makeForecastSummaryViewController(coordinator: ApplicationCoordinator) -> ForecastSummaryViewController {
+    func makeForecastSummaryViewController(coordinator: ApplicationCoordinator, location: Location?) -> ForecastSummaryViewController {
         let storyBoard = UIStoryboard(name: "ForecastSummary", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "ForecastSummaryViewController") as! ForecastSummaryViewController
         let presenter = ForecastSummaryPresenter(networkService: networkService, coordinator: coordinator, view: vc)
         vc.presenter = presenter
+        presenter.location = location
         return vc
     }
     
@@ -28,7 +30,7 @@ class DependencyFactory {
     
     func makeOnboardingViewController(coordinator: ApplicationCoordinator) -> OnboardingViewController {
         let vc = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
-        let presenter = OnboardingPresenter(view: vc, coordinator: coordinator)
+        let presenter = OnboardingPresenter(view: vc, coordinator: coordinator, locationManager: locationManager)
         vc.presenter = presenter
         return vc
     }
