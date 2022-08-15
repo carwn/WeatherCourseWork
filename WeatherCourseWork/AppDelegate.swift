@@ -13,7 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupAppearance()
         return true
+    }
+    
+    private func setupAppearance() {
+        let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
+        appearance.pageIndicatorTintColor = UIColor.white
+        appearance.currentPageIndicatorTintColor = UIColor.almostBlackColor
     }
 
     // MARK: UISceneSession Lifecycle

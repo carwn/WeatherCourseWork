@@ -11,12 +11,25 @@ class ForecastsPagesViewController: UIPageViewController {
     var presenter: ForecastsPagesPresenter?
     
     private var loadingIndicator: UIActivityIndicatorView!
+    private var pageControl: UIPageControl? {
+        for view in view.subviews {
+            if let pageControl = view as? UIPageControl {
+                return pageControl
+            }
+        }
+        return nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(settingsButtonPressed(_:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "geoIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(selectLocationButtonPressed(_:)))
         addLoadingIndicator()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updatePageControlDotsDesign()
     }
     
     func updateNavigationTitle(location: Location?) {
@@ -45,6 +58,10 @@ class ForecastsPagesViewController: UIPageViewController {
         NSLayoutConstraint.activate([loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         self.loadingIndicator = loadingIndicator
+    }
+    
+    func updatePageControlDotsDesign() {
+        pageControl?.customPageControl(dotFillColor: UIColor.almostBlackColor, dotBorderColor: UIColor.almostBlackColor, dotBorderWidth: 1)
     }
     
     @objc private func selectLocationButtonPressed(_ sender: Any) {

@@ -37,6 +37,7 @@ class DependencyFactory {
     
     func makeForecastsPageViewController(coordinator: ApplicationCoordinator, locations: [Location]) -> ForecastsPagesViewController {
         let vc = ForecastsPagesViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        vc.view.backgroundColor = .white
         let presenter = ForecastsPagesPresenter(networkService: networkService, coordinator: coordinator, view: vc, factory: self, locations: locations)
         vc.presenter = presenter
         return vc

@@ -137,17 +137,21 @@ extension ForecastsPagesPresenter: UIPageViewControllerDataSource {
         return orderedViewControllers[nextIndex]
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return orderedViewControllers.count
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        orderedViewControllers.count
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        0
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let vc = pageViewController.viewControllers?.first else {
+            return 0
+        }
+        return orderedViewControllers.indexOf(vc) ?? 0
     }
 }
 
 extension ForecastsPagesPresenter: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         reloadForecasts()
+        view?.updatePageControlDotsDesign()
     }
 }

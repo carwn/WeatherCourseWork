@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D19929D2898C32800E337FD /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D19929C2898C32800E337FD /* DependencyFactory.swift */; };
+		6D631B1128A9FFFA002EC293 /* UIPageControl+customPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D631B1028A9FFFA002EC293 /* UIPageControl+customPageControl.swift */; };
 		6D8B0EC92898EE58002DBE9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EC72898EE58002DBE9A /* SettingsViewController.swift */; };
 		6D8B0ECA2898EE58002DBE9A /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B0EC82898EE58002DBE9A /* SettingsViewController.xib */; };
 		6D8B0ECC2898EE70002DBE9A /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		6D19929C2898C32800E337FD /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
+		6D631B1028A9FFFA002EC293 /* UIPageControl+customPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageControl+customPageControl.swift"; sourceTree = "<group>"; };
 		6D8B0EC72898EE58002DBE9A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6D8B0EC82898EE58002DBE9A /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		6D8B0ECB2898EE70002DBE9A /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */,
 				6D8B0EDA289A720B002DBE9A /* Date+timeString.swift */,
 				6D8B0EEF28A11AD2002DBE9A /* Array+indexOf.swift */,
+				6D631B1028A9FFFA002EC293 /* UIPageControl+customPageControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				6DFD1708287E8BCC0001B884 /* CurrentCondition.swift in Sources */,
 				6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */,
 				6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */,
+				6D631B1128A9FFFA002EC293 /* UIPageControl+customPageControl.swift in Sources */,
 				6DFD16D4287D05AC0001B884 /* AirAndPollen.swift in Sources */,
 				6D8B0EF228A39518002DBE9A /* LocalStore.swift in Sources */,
 				6D8B0EE0289B5D20002DBE9A /* OnboardingViewController.swift in Sources */,

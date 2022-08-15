@@ -14,11 +14,10 @@ class LocalStore {
     private(set) var locations: [Location]
     
     init() {
-//        let country = Country(id: "7", localizedName: "Россия f", englishName: "Russia f")
-//        let mos = Location(key: "294021", localizedName: "Москва f", country: country)
-//        let tash = Location(key: "288383", localizedName: "Таштагол f", country: country)
-//        locations = [mos, tash]
-        locations = []
+        let country = Country(id: "7", localizedName: "Россия f", englishName: "Russia f")
+        let mos = Location(key: "294021", localizedName: "Москва f", country: country)
+        let tash = Location(key: "288383", localizedName: "Таштагол f", country: country)
+        locations = [mos, tash]
     }
     
     func addLocationAsFirst(_ newLocation: Location) {
