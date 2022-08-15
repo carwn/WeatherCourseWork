@@ -21,7 +21,6 @@ class ForecastSummaryPresenter {
     
     var location: Location? {
         didSet {
-            view?.locationDidUpdate()
             requestForecasts()
         }
     }
@@ -46,39 +45,6 @@ class ForecastSummaryPresenter {
         requestForecasts()
     }
     
-    func searchLocation(searchString: String?) {
-        guard
-            let searchString = searchString,
-            !searchString.isEmpty
-        else {
-            view?.showError("Не введена строка для поиска")
-            return
-        }
-        view?.startLoadingIndication()
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let self = self else { return }
-            self.networkService.locations(searchString: searchString, queue: .main) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let locations):
-                    if !locations.isEmpty {
-                        self.location = locations.first
-                    } else {
-                        self.view?.showError("Не удалось найти город с таким названием")
-                    }
-                case .failure(let error):
-                    self.view?.showError(error)
-                    print(error)
-                }
-                self.view?.stopLoadingIndication()
-            }
-        }
-    }
-    
-    func openAppSettings() {
-        coordinator.openSettings()
-    }
-    
     private func requestForecasts(daily: Bool = false, hourly: Bool = false, current: Bool = true) {
         guard let location = location else {
             dailyForecast = nil
@@ -87,7 +53,7 @@ class ForecastSummaryPresenter {
             return
         }
         
-        view?.startLoadingIndication()
+        coordinator.startLoadingIndication()
         let group = DispatchGroup()
         
         if daily {
@@ -148,7 +114,7 @@ class ForecastSummaryPresenter {
         }
         
         group.notify(queue: .main) { [weak self] in
-            self?.view?.stopLoadingIndication()
+            self?.coordinator.stopLoadingIndication()
         }
     }
 }

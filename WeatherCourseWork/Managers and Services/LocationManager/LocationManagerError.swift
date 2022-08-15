@@ -9,8 +9,8 @@ import Foundation
 
 enum LocationManagerError: LocalizedError {
     case cantGetLocation
-    case other(Error)
     case cantGetTitleFromCoordinate
+    case other(Error)
     
     var errorDescription: String? {
         switch self {

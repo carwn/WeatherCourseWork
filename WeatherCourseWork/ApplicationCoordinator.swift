@@ -11,11 +11,13 @@ final class ApplicationCoordinator {
     
     var navigationController: UINavigationController?
     
-    private let factory = DependencyFactory()
-    private var storedLocation: Location? {
-        didSet {
-            forecastSummaryPresenter?.location = storedLocation
-        }
+    private let factory: DependencyFactory
+    private let localStore: LocalStore
+
+    init() {
+        self.factory = DependencyFactory()
+        self.localStore = LocalStore()
+        localStore.delegate = self
     }
 
     func start() {
@@ -24,8 +26,7 @@ final class ApplicationCoordinator {
             let vc = factory.makeOnboardingViewController(coordinator: self)
             navigationController.viewControllers = [vc]
         } else {
-            let vc = factory.makeForecastSummaryViewController(coordinator: self, location: storedLocation)
-            navigationController.viewControllers = [vc]
+            setPageVC(locations: [])
         }
     }
     
@@ -38,18 +39,46 @@ final class ApplicationCoordinator {
     
     func dismissSettings(needReloadForecastSummary: Bool) {
         if needReloadForecastSummary {
-            reloadForecastSummary()
+            reloadCurrentPageForecastSummary()
         }
         dismissModal(vcType: SettingsViewController.self)
     }
     
-    func dismissOnboard() {
-        let vc = factory.makeForecastSummaryViewController(coordinator: self, location: storedLocation)
+    func dismissOnboard(setLocation location: Location?) {
+        if let location = location {
+            localStore.addLocationAsFirst(location)
+        } else {
+            setPageVC(locations: localStore.locations)
+        }
+    }
+    
+    func showForecastForNewLocation(_ location: Location) {
+        localStore.addLocationAsLast(location)
+    }
+    
+    func startLoadingIndication() {
+        pagesPresenter?.startLoadingIndication()
+    }
+    
+    func stopLoadingIndication() {
+        pagesPresenter?.stopLoadingIndication()
+    }
+    
+    private var pageViewController: ForecastsPagesViewController? {
+        navigationController?.viewControllers.first as? ForecastsPagesViewController
+    }
+    
+    private var pagesPresenter: ForecastsPagesPresenter? {
+        pageViewController?.presenter
+    }
+    
+    private func setPageVC(locations: [Location]) {
+        let vc = factory.makeForecastsPageViewController(coordinator: self, locations: locations)
         navigationController?.setViewControllers([vc], animated: true)
     }
     
-    func setLocation(_ newLocation: Location) {
-        storedLocation = newLocation
+    private func reloadCurrentPageForecastSummary() {
+        pagesPresenter?.reloadForecasts()
     }
     
     private func dismissModal<T: UIViewController>(vcType: T.Type) {
@@ -61,20 +90,14 @@ final class ApplicationCoordinator {
         }
         navigationController.visibleViewController?.dismiss(animated: true)
     }
-    
-    private var forecastSummaryPresenter: ForecastSummaryPresenter? {
-        guard let navigationController = navigationController else {
-            return nil
-        }
-        for vc in navigationController.viewControllers {
-            if let vc = vc as? ForecastSummaryViewController {
-                return vc.presenter
-            }
-        }
-        return nil
+}
+
+extension ApplicationCoordinator: LocalStoreDelegate {
+    func newLocationDidAddAsFirst() {
+        setPageVC(locations: localStore.locations)
     }
     
-    private func reloadForecastSummary() {
-        forecastSummaryPresenter?.reloadForecasts()
+    func newLocationDidAddAsLast() {
+        pagesPresenter?.addPage(location: localStore.locations.last!)
     }
 }

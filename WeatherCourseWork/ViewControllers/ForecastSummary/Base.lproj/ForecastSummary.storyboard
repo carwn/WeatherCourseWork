@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -53,15 +52,11 @@
                                     <segue destination="vs2-Rv-Ukb" kind="embed" id="kXf-lW-I8d"/>
                                 </connections>
                             </containerView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lH3-h1-tNa">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="sQZ-ch-Exb" secondAttribute="bottom" id="AaH-ZS-r2O"/>
-                            <constraint firstItem="lH3-h1-tNa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bly-zt-iRp"/>
                             <constraint firstItem="sQZ-ch-Exb" firstAttribute="top" secondItem="giT-42-3AY" secondAttribute="bottom" constant="20" id="CWq-W3-VJO"/>
                             <constraint firstAttribute="trailing" secondItem="sQZ-ch-Exb" secondAttribute="trailing" id="Ggm-vb-Giw"/>
                             <constraint firstItem="8W3-Li-jHH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="OVG-BW-dmf"/>
@@ -71,28 +66,13 @@
                             <constraint firstAttribute="trailing" secondItem="giT-42-3AY" secondAttribute="trailing" id="pdl-7q-m4A"/>
                             <constraint firstItem="8W3-Li-jHH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yQO-Xg-UDx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8W3-Li-jHH" secondAttribute="trailing" constant="16" id="yVd-y9-gZR"/>
-                            <constraint firstItem="lH3-h1-tNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zaD-0W-cZt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Выберете город 👉" id="bcV-qA-Sjd">
-                        <barButtonItem key="leftBarButtonItem" image="settingsIcon" id="TuJ-5b-GRC">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="N1f-2k-a3T"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="geoIcon" id="UaG-mT-0sg">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="selectLocationButtonPressed:" destination="BYZ-38-t0r" id="lVj-FE-Ucg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Выберете город 👉" id="bcV-qA-Sjd"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dailyForecastTableView" destination="sQZ-ch-Exb" id="0zZ-n9-12z"/>
                         <outlet property="hourlyForecastCollectionView" destination="giT-42-3AY" id="qg7-xr-UsE"/>
-                        <outlet property="loadingIndicator" destination="lH3-h1-tNa" id="weI-ef-MiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -252,13 +232,11 @@
     </scenes>
     <resources>
         <image name="ellipse" width="280" height="125"/>
-        <image name="geoIcon" width="20" height="26"/>
         <image name="iconDaytime" width="17" height="17"/>
         <image name="iconFirstElement" width="21" height="18"/>
         <image name="iconRain" width="13" height="15"/>
         <image name="iconSunset" width="17" height="17"/>
         <image name="iconWind" width="25" height="16"/>
-        <image name="settingsIcon" width="34" height="18"/>
         <namedColor name="AppMainColor">
             <color red="0.12549019607843137" green="0.30588235294117649" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

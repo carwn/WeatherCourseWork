@@ -23,6 +23,11 @@
 		6D8B0EE3289B5D31002DBE9A /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EE2289B5D31002DBE9A /* OnboardingPresenter.swift */; };
 		6D8B0EE5289B84B7002DBE9A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EE4289B84B7002DBE9A /* LocationManager.swift */; };
 		6D8B0EE7289CBFEC002DBE9A /* LocationManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EE6289CBFEC002DBE9A /* LocationManagerError.swift */; };
+		6D8B0EEB28A11982002DBE9A /* ForecastsPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EEA28A11982002DBE9A /* ForecastsPagesViewController.swift */; };
+		6D8B0EED28A119A0002DBE9A /* ForecastsPagesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EEC28A119A0002DBE9A /* ForecastsPagesPresenter.swift */; };
+		6D8B0EF028A11AD2002DBE9A /* Array+indexOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EEF28A11AD2002DBE9A /* Array+indexOf.swift */; };
+		6D8B0EF228A39518002DBE9A /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EF128A39518002DBE9A /* LocalStore.swift */; };
+		6D8B0EF528A396DC002DBE9A /* LocalStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B0EF428A396DC002DBE9A /* LocalStoreDelegate.swift */; };
 		6DB0AA58287FAEA9005159D0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */; };
 		6DB0AA5C287FC4E5005159D0 /* ForecastSummaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */; };
 		6DF75806287E9DA300C8E111 /* CurrentWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF75805287E9DA300C8E111 /* CurrentWind.swift */; };
@@ -97,6 +102,11 @@
 		6D8B0EE2289B5D31002DBE9A /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		6D8B0EE4289B84B7002DBE9A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6D8B0EE6289CBFEC002DBE9A /* LocationManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerError.swift; sourceTree = "<group>"; };
+		6D8B0EEA28A11982002DBE9A /* ForecastsPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsPagesViewController.swift; sourceTree = "<group>"; };
+		6D8B0EEC28A119A0002DBE9A /* ForecastsPagesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastsPagesPresenter.swift; sourceTree = "<group>"; };
+		6D8B0EEF28A11AD2002DBE9A /* Array+indexOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+indexOf.swift"; sourceTree = "<group>"; };
+		6D8B0EF128A39518002DBE9A /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		6D8B0EF428A396DC002DBE9A /* LocalStoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStoreDelegate.swift; sourceTree = "<group>"; };
 		6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		6DB0AA5B287FC4E5005159D0 /* ForecastSummaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastSummaryPresenter.swift; sourceTree = "<group>"; };
 		6DF75805287E9DA300C8E111 /* CurrentWind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWind.swift; sourceTree = "<group>"; };
@@ -199,6 +209,7 @@
 		6D8B0EDD289B5CFE002DBE9A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D8B0EEE28A119A7002DBE9A /* ForecastsPages */,
 				6DFD16DA287D08F30001B884 /* ForecastSummary */,
 				6D8B0EC62898EE33002DBE9A /* Settings */,
 				6D8B0EDC289B5CD7002DBE9A /* Onboarding */,
@@ -215,14 +226,33 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
-		6D8B0EE9289CC00E002DBE9A /* Manager and Service */ = {
+		6D8B0EE9289CC00E002DBE9A /* Managers and Services */ = {
 			isa = PBXGroup;
 			children = (
 				6DFD168C287BC9D90001B884 /* NetworkService */,
 				6D8B0ED128995D5A002DBE9A /* SettingsManager */,
 				6D8B0EE8289CC001002DBE9A /* LocationManager */,
+				6D8B0EF328A39527002DBE9A /* LocalStore */,
 			);
-			path = "Manager and Service";
+			path = "Managers and Services";
+			sourceTree = "<group>";
+		};
+		6D8B0EEE28A119A7002DBE9A /* ForecastsPages */ = {
+			isa = PBXGroup;
+			children = (
+				6D8B0EEC28A119A0002DBE9A /* ForecastsPagesPresenter.swift */,
+				6D8B0EEA28A11982002DBE9A /* ForecastsPagesViewController.swift */,
+			);
+			path = ForecastsPages;
+			sourceTree = "<group>";
+		};
+		6D8B0EF328A39527002DBE9A /* LocalStore */ = {
+			isa = PBXGroup;
+			children = (
+				6D8B0EF128A39518002DBE9A /* LocalStore.swift */,
+				6D8B0EF428A396DC002DBE9A /* LocalStoreDelegate.swift */,
+			);
+			path = LocalStore;
 			sourceTree = "<group>";
 		};
 		6DF7580E287ECACE00C8E111 /* DailyForecastTableView */ = {
@@ -271,7 +301,7 @@
 				6DB0AA57287FAEA9005159D0 /* ApplicationCoordinator.swift */,
 				6D19929C2898C32800E337FD /* DependencyFactory.swift */,
 				6D8B0EDD289B5CFE002DBE9A /* ViewControllers */,
-				6D8B0EE9289CC00E002DBE9A /* Manager and Service */,
+				6D8B0EE9289CC00E002DBE9A /* Managers and Services */,
 				6DFD169F287BDBE60001B884 /* Extensions */,
 				6DFD1665287B21080001B884 /* Assets.xcassets */,
 				6DFD1667287B21080001B884 /* LaunchScreen.storyboard */,
@@ -306,6 +336,7 @@
 				6DFD16FD287D347D0001B884 /* UIViewController+showError.swift */,
 				6D8B0ED6289A35F3002DBE9A /* UIColor+colors.swift */,
 				6D8B0EDA289A720B002DBE9A /* Date+timeString.swift */,
+				6D8B0EEF28A11AD2002DBE9A /* Array+indexOf.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +499,8 @@
 				6DFD170C287E8BEA0001B884 /* PastHourRange.swift in Sources */,
 				6DFD16CB287D05AC0001B884 /* Moon.swift in Sources */,
 				6DFD1706287E8BC20001B884 /* MetricImperialValue.swift in Sources */,
+				6D8B0EEB28A11982002DBE9A /* ForecastsPagesViewController.swift in Sources */,
+				6D8B0EED28A119A0002DBE9A /* ForecastsPagesPresenter.swift in Sources */,
 				6DFD170E287E8BF80001B884 /* PressureTendency.swift in Sources */,
 				6D8B0EC92898EE58002DBE9A /* SettingsViewController.swift in Sources */,
 				6DFD1698287BD4270001B884 /* NetworkServiceError.swift in Sources */,
@@ -502,7 +535,9 @@
 				6DFD16FE287D347D0001B884 /* UIViewController+showError.swift in Sources */,
 				6D8B0ED7289A35F3002DBE9A /* UIColor+colors.swift in Sources */,
 				6DFD16D4287D05AC0001B884 /* AirAndPollen.swift in Sources */,
+				6D8B0EF228A39518002DBE9A /* LocalStore.swift in Sources */,
 				6D8B0EE0289B5D20002DBE9A /* OnboardingViewController.swift in Sources */,
+				6D8B0EF028A11AD2002DBE9A /* Array+indexOf.swift in Sources */,
 				6DFD16E1287D096B0001B884 /* DailyForecastTableViewCell.swift in Sources */,
 				6DF75808287E9DCD00C8E111 /* CurrentWindGust.swift in Sources */,
 				6DFD165C287B21080001B884 /* SceneDelegate.swift in Sources */,
@@ -511,6 +546,7 @@
 				6DFD16D8287D05AC0001B884 /* Temperature.swift in Sources */,
 				6DFD1700287D5A320001B884 /* ForecastSummaryViewController+collectionView.swift in Sources */,
 				6D8B0EE3289B5D31002DBE9A /* OnboardingPresenter.swift in Sources */,
+				6D8B0EF528A396DC002DBE9A /* LocalStoreDelegate.swift in Sources */,
 				6DF7580B287EA04500C8E111 /* CurrentWeatherViewController.swift in Sources */,
 				6D8B0ECC2898EE70002DBE9A /* SettingsPresenter.swift in Sources */,
 			);

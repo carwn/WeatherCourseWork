@@ -34,4 +34,11 @@ class DependencyFactory {
         vc.presenter = presenter
         return vc
     }
+    
+    func makeForecastsPageViewController(coordinator: ApplicationCoordinator, locations: [Location]) -> ForecastsPagesViewController {
+        let vc = ForecastsPagesViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let presenter = ForecastsPagesPresenter(networkService: networkService, coordinator: coordinator, view: vc, factory: self, locations: locations)
+        vc.presenter = presenter
+        return vc
+    }
 }

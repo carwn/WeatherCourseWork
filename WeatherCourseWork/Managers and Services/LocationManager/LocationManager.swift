@@ -13,9 +13,7 @@ import Foundation
 class LocationManager: NSObject {
     
     private let networkService: NetworkService
-    
     private let locationManager = CLLocationManager()
-    
     private var completion: ((Result<Location, LocationManagerError>) -> Void)?
     
     init(networkService: NetworkService) {
