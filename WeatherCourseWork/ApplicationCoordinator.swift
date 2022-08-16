@@ -86,6 +86,10 @@ final class ApplicationCoordinator {
         pageViewController?.showError(error)
     }
     
+    func updateLastForecastUpdateDate(_ date: Date?) {
+        pagesPresenter?.updateLastForecastUpdateDate(date)
+    }
+    
     private var pageViewController: ForecastsPagesViewController? {
         navigationController?.viewControllers.first as? ForecastsPagesViewController
     }

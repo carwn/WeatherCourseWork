@@ -8,6 +8,7 @@
 import UIKit
 
 class ForecastsPagesViewController: UIPageViewController {
+    
     var presenter: ForecastsPagesPresenter?
     
     private var loadingIndicator: UIActivityIndicatorView!
@@ -20,10 +21,14 @@ class ForecastsPagesViewController: UIPageViewController {
         return nil
     }
     
+    private var titleLabel: UILabel!
+    private var subtitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(settingsButtonPressed(_:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "geoIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(selectLocationButtonPressed(_:)))
+        navigationItem.titleView = titlesView()
         addLoadingIndicator()
     }
     
@@ -34,10 +39,10 @@ class ForecastsPagesViewController: UIPageViewController {
     
     func updateNavigationTitle(location: Location?) {
         guard let location = location else {
-            navigationItem.title = "Выберете город 👉"
+            titleLabel.text = "Выберете город 👉"
             return
         }
-        navigationItem.title = "\(location.localizedName), \(location.country.localizedName)"
+        titleLabel.text = "\(location.localizedName), \(location.country.localizedName)"
     }
     
     func startLoadingIndication() {
@@ -50,6 +55,19 @@ class ForecastsPagesViewController: UIPageViewController {
         loadingIndicator.stopAnimating()
     }
     
+    func updateLastForecastUpdateDate(_ date: Date?) {
+        let dateString: String
+        if let date = date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            dateString = dateFormatter.string(from: date)
+        } else {
+            dateString = "неизвестно"
+        }
+        subtitleLabel.text = dateString
+    }
+    
     private func addLoadingIndicator() {
         let loadingIndicator = UIActivityIndicatorView(style: .large)
         loadingIndicator.hidesWhenStopped = true
@@ -58,6 +76,24 @@ class ForecastsPagesViewController: UIPageViewController {
         NSLayoutConstraint.activate([loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                                      loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         self.loadingIndicator = loadingIndicator
+    }
+    
+    private func titlesView() -> UIView {
+        let one = UILabel()
+        one.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        
+        let two = UILabel()
+        two.font = UIFont.systemFont(ofSize: 12)
+        
+        let stackView = UIStackView(arrangedSubviews: [one, two])
+        stackView.distribution = .equalCentering
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        
+        self.titleLabel = one
+        self.subtitleLabel = two
+        
+        return stackView
     }
     
     func updatePageControlDotsDesign() {

@@ -97,6 +97,10 @@ class ForecastsPagesPresenter: NSObject {
         view?.setViewControllers([newVC], direction: .forward, animated: true)
         view?.updateNavigationTitle(location: location)
     }
+    
+    func updateLastForecastUpdateDate(_ date: Date?) {
+        view?.updateLastForecastUpdateDate(date)
+    }
 }
 
 extension ForecastsPagesPresenter: UIPageViewControllerDataSource {

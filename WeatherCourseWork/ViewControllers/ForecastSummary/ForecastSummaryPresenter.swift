@@ -45,7 +45,7 @@ class ForecastSummaryPresenter {
         requestForecasts()
     }
     
-    private func requestForecasts(daily: Bool = true, hourly: Bool = true, current: Bool = true) {
+    private func requestForecasts(daily: Bool = false, hourly: Bool = false, current: Bool = true) {
         guard let location = location else {
             dailyForecast = nil
             horlyForecast = nil
@@ -108,8 +108,10 @@ class ForecastSummaryPresenter {
         }
         
         group.notify(queue: .main) { [weak self] in
-            self?.coordinator.stopLoadingIndication()
-            print(updateDailyForecastDate, updateHourlyForecastDate, updateCurrentForecastDate)
+            guard let self = self else { return }
+            self.coordinator.stopLoadingIndication()
+            let lastUpdateDate = [updateDailyForecastDate, updateHourlyForecastDate, updateCurrentForecastDate].compactMap { $0 }.sorted().first
+            self.coordinator.updateLastForecastUpdateDate(lastUpdateDate)
         }
     }
 }
