@@ -15,8 +15,9 @@ final class ApplicationCoordinator {
     private let localStore: LocalStore
 
     init() {
-        self.factory = DependencyFactory()
-        self.localStore = LocalStore()
+        let localStore = LocalStore()
+        self.factory = DependencyFactory(localStore: localStore)
+        self.localStore = localStore
         localStore.delegate = self
     }
 

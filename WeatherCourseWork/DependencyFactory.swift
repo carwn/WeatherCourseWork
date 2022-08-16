@@ -9,13 +9,20 @@ import UIKit
 
 class DependencyFactory {
     
-    private let networkService = NetworkService()
+    private let networkService: NetworkService
+    private let forecastSource: ForecastSource
     private lazy var locationManager = LocationManager(networkService: networkService)
+    
+    init(localStore: LocalStore) {
+        let networkService = NetworkService()
+        self.networkService = networkService
+        self.forecastSource = ForecastSource(networkService: networkService, localStore: localStore)
+    }
     
     func makeForecastSummaryViewController(coordinator: ApplicationCoordinator, location: Location?) -> ForecastSummaryViewController {
         let storyBoard = UIStoryboard(name: "ForecastSummary", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "ForecastSummaryViewController") as! ForecastSummaryViewController
-        let presenter = ForecastSummaryPresenter(networkService: networkService, coordinator: coordinator, view: vc)
+        let presenter = ForecastSummaryPresenter(forecastSource: forecastSource, coordinator: coordinator, view: vc)
         vc.presenter = presenter
         presenter.location = location
         return vc
