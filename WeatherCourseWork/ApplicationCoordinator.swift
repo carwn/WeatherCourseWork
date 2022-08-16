@@ -26,7 +26,7 @@ final class ApplicationCoordinator {
             let vc = factory.makeOnboardingViewController(coordinator: self)
             navigationController.viewControllers = [vc]
         } else {
-            setPageVC(locations: [])
+            openLocationsFromStore()
         }
     }
     
@@ -46,14 +46,31 @@ final class ApplicationCoordinator {
     
     func dismissOnboard(setLocation location: Location?) {
         if let location = location {
-            localStore.addLocationAsFirst(location)
+            startLoadingIndication()
+            localStore.addLocationAsFirst(location) { result in
+                stopLoadingIndication()
+                switch result {
+                case .success():
+                    break
+                case .failure(let error):
+                    showError(error)
+                }
+                openLocationsFromStore()
+            }
         } else {
-            setPageVC(locations: localStore.locations)
+            openLocationsFromStore()
         }
     }
     
     func showForecastForNewLocation(_ location: Location) {
-        localStore.addLocationAsLast(location)
+        localStore.addLocationAsLast(location) { result in
+            switch result {
+            case .success():
+                pagesPresenter?.addPage(location: location)
+            case .failure(let error):
+                showError(error)
+            }
+        }
     }
     
     func startLoadingIndication() {
@@ -64,17 +81,16 @@ final class ApplicationCoordinator {
         pagesPresenter?.stopLoadingIndication()
     }
     
+    func showError(_ error: Error) {
+        pageViewController?.showError(error)
+    }
+    
     private var pageViewController: ForecastsPagesViewController? {
         navigationController?.viewControllers.first as? ForecastsPagesViewController
     }
     
     private var pagesPresenter: ForecastsPagesPresenter? {
         pageViewController?.presenter
-    }
-    
-    private func setPageVC(locations: [Location]) {
-        let vc = factory.makeForecastsPageViewController(coordinator: self, locations: locations)
-        navigationController?.setViewControllers([vc], animated: true)
     }
     
     private func reloadCurrentPageForecastSummary() {
@@ -90,14 +106,22 @@ final class ApplicationCoordinator {
         }
         navigationController.visibleViewController?.dismiss(animated: true)
     }
+    
+    private func openLocationsFromStore() {
+        localStore.locations { result in
+            switch result {
+            case .success(let locations):
+                let vc = factory.makeForecastsPageViewController(coordinator: self, locations: locations)
+                navigationController?.setViewControllers([vc], animated: true)
+            case .failure(let error):
+                showError(error)
+            }
+        }
+    }
 }
 
 extension ApplicationCoordinator: LocalStoreDelegate {
-    func newLocationDidAddAsFirst() {
-        setPageVC(locations: localStore.locations)
-    }
-    
-    func newLocationDidAddAsLast() {
-        pagesPresenter?.addPage(location: localStore.locations.last!)
+    func throwError(_ error: Error) {
+        showError(error)
     }
 }

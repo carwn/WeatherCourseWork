@@ -25,6 +25,7 @@ class OnboardingPresenter {
             self.view.stopCoordinateSearchWaitingUI()
             switch result {
             case .success(let location):
+                SettingsManager.shared.needOnboarding = false
                 self.coordinator.dismissOnboard(setLocation: location)
             case .failure(let error):
                 self.view.showError(error)
@@ -33,6 +34,7 @@ class OnboardingPresenter {
     }
     
     func dontUseLocationButtonPressed() {
+        SettingsManager.shared.needOnboarding = false
         coordinator.dismissOnboard(setLocation: nil)
     }
 }

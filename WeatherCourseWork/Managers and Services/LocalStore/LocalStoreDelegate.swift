@@ -8,6 +8,5 @@
 import Foundation
 
 protocol LocalStoreDelegate: AnyObject {
-    func newLocationDidAddAsFirst()
-    func newLocationDidAddAsLast()
+    func throwError(_: Error)
 }
