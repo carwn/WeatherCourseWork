@@ -106,16 +106,16 @@ class LocalStore {
         saveForecast(currentConditions, type: .currentConditions, location: location, completion: completion)
     }
     
-    func dailyForecast(location: Location, completion: (Result<DailyForecast, LocalStoreError>) -> Void) {
-        
+    func dailyForecast(location: Location, queue: DispatchQueue = .main, completion: @escaping (Result<(DailyForecast, Date)?, LocalStoreError>) -> Void) {
+        forecast(location: location, type: .daily, queue: queue, completion: completion)
     }
     
-    func hourlyForecasts(location: Location, completion: (Result<[HourlyForecastElement], LocalStoreError>) -> Void) {
-        
+    func hourlyForecasts(location: Location, queue: DispatchQueue = .main, completion: @escaping (Result<([HourlyForecastElement], Date)?, LocalStoreError>) -> Void) {
+        forecast(location: location, type: .horly, queue: queue, completion: completion)
     }
     
-    func currentConditions(location: Location, completion: (Result<[CurrentCondition], LocalStoreError>) -> Void) {
-        
+    func currentConditions(location: Location, queue: DispatchQueue = .main, completion: @escaping (Result<([CurrentCondition], Date)?, LocalStoreError>) -> Void) {
+        forecast(location: location, type: .currentConditions, queue: queue, completion: completion)
     }
     
     private func addLsLocation(fromLocation location: Location, atIndex index: Int64, completion: (Result<LSLocation, LocalStoreError>) -> Void) {
@@ -207,6 +207,50 @@ class LocalStore {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func forecast<T: Decodable>(location: Location, type: LSForecast.ForecastType, queue: DispatchQueue, completion: @escaping (Result<(T, Date)?, LocalStoreError>) -> Void) {
+        lastForecast(location: location, type: type) { result in
+            switch result {
+            case .success(let forecast):
+                if let forecast = forecast {
+                    do {
+                        let object = try JSONDecoder().decode(T.self, from: forecast.0)
+                        queue.async {
+                            completion(.success((object, forecast.1)))
+                        }
+                    } catch {
+                        queue.async {
+                            completion(.failure(.other(error)))
+                        }
+                    }
+                } else {
+                    queue.async {
+                        completion(.success(nil))
+                    }
+                }
+            case .failure(let error):
+                queue.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    private func lastForecast(location: Location, type: LSForecast.ForecastType, completion: (Result<(Data, Date)?, LocalStoreError>) -> Void) {
+        let fr = LSForecast.fetchRequest()
+        fr.predicate = NSPredicate(format: "location.key == %@ && type == %@", location.key, type.rawValue)
+        fr.sortDescriptors = [NSSortDescriptor(key: #keyPath(LSForecast.date), ascending: true)]
+        do {
+            let forecasts = try context.fetch(fr)
+            if let lastForecast = forecasts.last, let data = lastForecast.json, let date = lastForecast.date {
+                completion(.success((data, date)))
+            } else {
+                completion(.success(nil))
+            }
+        } catch {
+            completion(.failure(.other(error)))
         }
     }
     
