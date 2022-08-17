@@ -27,7 +27,7 @@ final class ApplicationCoordinator {
             let vc = factory.makeOnboardingViewController(coordinator: self)
             navigationController.viewControllers = [vc]
         } else {
-            openLocationsFromStore()
+            openLocationsFromStore(animated: true)
         }
     }
     
@@ -56,10 +56,10 @@ final class ApplicationCoordinator {
                 case .failure(let error):
                     showError(error)
                 }
-                openLocationsFromStore()
+                openLocationsFromStore(animated: true)
             }
         } else {
-            openLocationsFromStore()
+            openLocationsFromStore(animated: true)
         }
     }
     
@@ -67,7 +67,11 @@ final class ApplicationCoordinator {
         localStore.addLocationAsLast(location) { result in
             switch result {
             case .success():
-                pagesPresenter?.addPage(location: location)
+                if localStore.locationsCount == 1 {
+                    openLocationsFromStore(animated: false)
+                } else {
+                    pagesPresenter?.addPage(location: location)
+                }
             case .failure(let error):
                 showError(error)
             }
@@ -112,12 +116,12 @@ final class ApplicationCoordinator {
         navigationController.visibleViewController?.dismiss(animated: true)
     }
     
-    private func openLocationsFromStore() {
+    private func openLocationsFromStore(animated: Bool) {
         localStore.locations { result in
             switch result {
             case .success(let locations):
                 let vc = factory.makeForecastsPageViewController(coordinator: self, locations: locations)
-                navigationController?.setViewControllers([vc], animated: true)
+                navigationController?.setViewControllers([vc], animated: animated)
             case .failure(let error):
                 showError(error)
             }

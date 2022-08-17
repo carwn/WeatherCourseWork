@@ -26,6 +26,16 @@ class LocalStore {
         persistentContainer.viewContext
     }
     
+    var locationsCount: Int {
+        do {
+            let count = try context.count(for: LSLocation.fetchRequest())
+            return count
+        } catch {
+            delegate?.throwError(error)
+            return 0
+        }
+    }
+    
     func locations(_ completion: (Result<[Location], LocalStoreError>) -> Void) {
         lsLocations { result in
             switch result {
