@@ -10,5 +10,6 @@ import Foundation
 enum LocalStoreError: Error {
     case cantParseStoredLocations
     case moreOneCountryWithID
+    case moreOneLocationWithID
     case other(Error)
 }

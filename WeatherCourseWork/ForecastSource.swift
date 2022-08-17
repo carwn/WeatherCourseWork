@@ -23,6 +23,7 @@ class ForecastSource {
             self.networkService.dailyForecast(location: location, queue: .main) { result in
                 switch result {
                 case .success(let weather):
+                    self.localStore.saveForecast(weather, location: location)
                     completion(.success((weather, Date())))
                 case .failure(let error):
                     completion(.failure(error))
@@ -37,6 +38,7 @@ class ForecastSource {
             self.networkService.hourlyForecast(location: location, queue: .main) { result in
                 switch result {
                 case .success(let weather):
+                    self.localStore.saveForecast(weather, location: location)
                     completion(.success((weather, Date())))
                 case .failure(let error):
                     completion(.failure(error))
@@ -51,6 +53,7 @@ class ForecastSource {
             self.networkService.currentCondition(location: location, queue: .main) { result in
                 switch result {
                 case .success(let weather):
+                    self.localStore.saveForecast(weather, location: location)
                     completion(.success((weather, Date())))
                 case .failure(let error):
                     completion(.failure(error))

@@ -6,14 +6,22 @@
         <attribute name="localizedName" optional="YES" attributeType="String"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LSLocation" inverseName="country" inverseEntity="LSLocation"/>
     </entity>
+    <entity name="LSForecast" representedClassName="LSForecast" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="json" optional="YES" attributeType="Binary"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSLocation" inverseName="forecasts" inverseEntity="LSLocation"/>
+    </entity>
     <entity name="LSLocation" representedClassName="LSLocation" syncable="YES" codeGenerationType="class">
         <attribute name="key" optional="YES" attributeType="String"/>
         <attribute name="localizedName" optional="YES" attributeType="String"/>
         <attribute name="sortIndex" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSCountry" inverseName="locations" inverseEntity="LSCountry"/>
+        <relationship name="forecasts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LSForecast" inverseName="location" inverseEntity="LSForecast"/>
     </entity>
     <elements>
-        <element name="LSLocation" positionX="68.38671875" positionY="-221.9609375" width="128" height="103"/>
         <element name="LSCountry" positionX="-152.7734375" positionY="-281.82421875" width="128" height="103"/>
+        <element name="LSLocation" positionX="68.38671875" positionY="-221.9609375" width="128" height="104"/>
+        <element name="LSForecast" positionX="-18" positionY="-189" width="128" height="89"/>
     </elements>
 </model>
