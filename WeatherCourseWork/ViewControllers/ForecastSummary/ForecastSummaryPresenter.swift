@@ -68,7 +68,6 @@ class ForecastSummaryPresenter {
                     self.dailyForecast = weather.0
                     updateDailyForecastDate = weather.1
                 case .failure(let error):
-                    self.dailyForecast = nil
                     self.coordinator.showError(error)
                 }
                 group.leave()
@@ -84,7 +83,6 @@ class ForecastSummaryPresenter {
                     self.horlyForecast = weather.0
                     updateHourlyForecastDate = weather.1
                 case .failure(let error):
-                    self.horlyForecast = nil
                     self.coordinator.showError(error)
                 }
                 group.leave()
@@ -100,7 +98,6 @@ class ForecastSummaryPresenter {
                     self.currentConditions = weather.0
                     updateCurrentForecastDate = weather.1
                 case .failure(let error):
-                    self.currentConditions = nil
                     self.coordinator.showError(error)
                 }
                 group.leave()
@@ -111,7 +108,9 @@ class ForecastSummaryPresenter {
             guard let self = self else { return }
             self.coordinator.stopLoadingIndication()
             let lastUpdateDate = [updateDailyForecastDate, updateHourlyForecastDate, updateCurrentForecastDate].compactMap { $0 }.sorted().first
-            self.coordinator.updateLastForecastUpdateDate(lastUpdateDate)
+            if let lastUpdateDate = lastUpdateDate {
+                self.coordinator.updateLastForecastUpdateDate(lastUpdateDate)
+            }
         }
     }
 }
