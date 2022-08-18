@@ -26,8 +26,10 @@ class ForecastsPagesViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(settingsButtonPressed(_:)))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "geoIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(selectLocationButtonPressed(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "settingsIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(settingsButtonPressed))
+        let searchCityItem = UIBarButtonItem(image: UIImage(named: "geoIcon")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(selectLocationButtonPressed))
+        let refreshForecastItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise")?.withTintColor(.almostBlackColor, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(refreshButtonPressed))
+        navigationItem.rightBarButtonItems = [searchCityItem, refreshForecastItem]
         navigationItem.titleView = titlesView()
         addLoadingIndicator()
     }
@@ -100,7 +102,7 @@ class ForecastsPagesViewController: UIPageViewController {
         pageControl?.customPageControl(dotFillColor: UIColor.almostBlackColor, dotBorderColor: UIColor.almostBlackColor, dotBorderWidth: 1)
     }
     
-    @objc private func selectLocationButtonPressed(_ sender: Any) {
+    @objc private func selectLocationButtonPressed() {
         let alert = UIAlertController(title: "Введите город", message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Москва"
@@ -113,7 +115,11 @@ class ForecastsPagesViewController: UIPageViewController {
         present(alert, animated: true)
     }
     
-    @objc private func settingsButtonPressed(_ sender: Any) {
+    @objc private func settingsButtonPressed() {
         presenter?.openAppSettings()
+    }
+    
+    @objc private func refreshButtonPressed() {
+        presenter?.reloadForecasts(forceUpdateFromNetwork: true)
     }
 }

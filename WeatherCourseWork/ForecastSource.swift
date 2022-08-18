@@ -17,7 +17,7 @@ class ForecastSource {
         self.localStore = localStore
     }
     
-    func dailyForecast(location: Location, completion: @escaping (Result<(DailyForecast, Date), Error>) -> Void) {
+    func dailyForecast(location: Location, forceUpdateFromNetwork: Bool, completion: @escaping (Result<(DailyForecast, Date), Error>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             func requestNetwork() {
@@ -31,23 +31,27 @@ class ForecastSource {
                     }
                 }
             }
-            self.localStore.dailyForecast(location: location, queue: .main) { result in
-                switch result {
-                case .success(let forecast):
-                    if let forecast = forecast {
-                        completion(.success(forecast))
-                    } else {
+            if forceUpdateFromNetwork {
+                requestNetwork()
+            } else {
+                self.localStore.dailyForecast(location: location, queue: .main) { result in
+                    switch result {
+                    case .success(let forecast):
+                        if let forecast = forecast {
+                            completion(.success(forecast))
+                        } else {
+                            requestNetwork()
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
                         requestNetwork()
                     }
-                case .failure(let error):
-                    completion(.failure(error))
-                    requestNetwork()
                 }
             }
         }
     }
     
-    func horlyForecasts(location: Location, completion: @escaping (Result<([HourlyForecastElement], Date), Error>) -> Void) {
+    func horlyForecasts(location: Location, forceUpdateFromNetwork: Bool, completion: @escaping (Result<([HourlyForecastElement], Date), Error>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             func requestNetwork() {
@@ -61,23 +65,27 @@ class ForecastSource {
                     }
                 }
             }
-            self.localStore.hourlyForecasts(location: location, queue: .main) { result in
-                switch result {
-                case .success(let forecast):
-                    if let forecast = forecast {
-                        completion(.success(forecast))
-                    } else {
+            if forceUpdateFromNetwork {
+                requestNetwork()
+            } else {
+                self.localStore.hourlyForecasts(location: location, queue: .main) { result in
+                    switch result {
+                    case .success(let forecast):
+                        if let forecast = forecast {
+                            completion(.success(forecast))
+                        } else {
+                            requestNetwork()
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
                         requestNetwork()
                     }
-                case .failure(let error):
-                    completion(.failure(error))
-                    requestNetwork()
                 }
             }
         }
     }
     
-    func currentConditions(location: Location, completion: @escaping (Result<([CurrentCondition], Date), Error>) -> Void) {
+    func currentConditions(location: Location, forceUpdateFromNetwork: Bool, completion: @escaping (Result<([CurrentCondition], Date), Error>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let self = self else { return }
             func requestNetwork() {
@@ -91,17 +99,21 @@ class ForecastSource {
                     }
                 }
             }
-            self.localStore.currentConditions(location: location, queue: .main) { result in
-                switch result {
-                case .success(let forecast):
-                    if let forecast = forecast {
-                        completion(.success(forecast))
-                    } else {
+            if forceUpdateFromNetwork {
+                requestNetwork()
+            } else {
+                self.localStore.currentConditions(location: location, queue: .main) { result in
+                    switch result {
+                    case .success(let forecast):
+                        if let forecast = forecast {
+                            completion(.success(forecast))
+                        } else {
+                            requestNetwork()
+                        }
+                    case .failure(let error):
+                        completion(.failure(error))
                         requestNetwork()
                     }
-                case .failure(let error):
-                    completion(.failure(error))
-                    requestNetwork()
                 }
             }
         }

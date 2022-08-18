@@ -86,8 +86,8 @@ class ForecastsPagesPresenter: NSObject {
         view?.showError(string)
     }
     
-    func reloadForecasts() {
-        currentViewController?.presenter?.reloadForecasts()
+    func reloadForecasts(forceUpdateFromNetwork: Bool) {
+        currentViewController?.presenter?.reloadForecasts(forceUpdateFromNetwork: forceUpdateFromNetwork)
         view?.updateNavigationTitle(location: currentViewController?.presenter?.location)
     }
     
@@ -155,7 +155,7 @@ extension ForecastsPagesPresenter: UIPageViewControllerDataSource {
 
 extension ForecastsPagesPresenter: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        reloadForecasts()
+        reloadForecasts(forceUpdateFromNetwork: false)
         view?.updatePageControlDotsDesign()
     }
 }

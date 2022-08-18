@@ -103,7 +103,7 @@ final class ApplicationCoordinator {
     }
     
     private func reloadCurrentPageForecastSummary() {
-        pagesPresenter?.reloadForecasts()
+        pagesPresenter?.reloadForecasts(forceUpdateFromNetwork: false)
     }
     
     private func dismissModal<T: UIViewController>(vcType: T.Type) {

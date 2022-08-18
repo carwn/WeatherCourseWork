@@ -21,7 +21,7 @@ class ForecastSummaryPresenter {
     
     var location: Location? {
         didSet {
-            requestForecasts()
+            requestForecasts(forceUpdateFromNetwork: false)
         }
     }
     
@@ -41,11 +41,11 @@ class ForecastSummaryPresenter {
         }
     }
     
-    func reloadForecasts() {
-        requestForecasts()
+    func reloadForecasts(forceUpdateFromNetwork: Bool) {
+        requestForecasts(forceUpdateFromNetwork: forceUpdateFromNetwork)
     }
     
-    private func requestForecasts(daily: Bool = false, hourly: Bool = false, current: Bool = true) {
+    private func requestForecasts(daily: Bool = true, hourly: Bool = true, current: Bool = true, forceUpdateFromNetwork: Bool) {
         guard let location = location else {
             dailyForecast = nil
             horlyForecast = nil
@@ -61,7 +61,7 @@ class ForecastSummaryPresenter {
         
         if daily {
             group.enter()
-            forecastSource.dailyForecast(location: location) { [weak self] result in
+            forecastSource.dailyForecast(location: location, forceUpdateFromNetwork: forceUpdateFromNetwork) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
@@ -77,7 +77,7 @@ class ForecastSummaryPresenter {
         
         if hourly {
             group.enter()
-            forecastSource.horlyForecasts(location: location) { [weak self] result in
+            forecastSource.horlyForecasts(location: location, forceUpdateFromNetwork: forceUpdateFromNetwork) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
@@ -93,7 +93,7 @@ class ForecastSummaryPresenter {
         
         if current {
             group.enter()
-            forecastSource.currentConditions(location: location) { [weak self] result in
+            forecastSource.currentConditions(location: location, forceUpdateFromNetwork: forceUpdateFromNetwork) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case .success(let weather):
