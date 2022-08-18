@@ -245,6 +245,7 @@
 				6D8B0ED128995D5A002DBE9A /* SettingsManager */,
 				6D8B0EE8289CC001002DBE9A /* LocationManager */,
 				6D8B0EF328A39527002DBE9A /* LocalStore */,
+				6DF2A9CF28AB7A2C00808111 /* ForecastSource.swift */,
 			);
 			path = "Managers and Services";
 			sourceTree = "<group>";
@@ -318,7 +319,6 @@
 				6D19929C2898C32800E337FD /* DependencyFactory.swift */,
 				6D8B0EDD289B5CFE002DBE9A /* ViewControllers */,
 				6D8B0EE9289CC00E002DBE9A /* Managers and Services */,
-				6DF2A9CF28AB7A2C00808111 /* ForecastSource.swift */,
 				6DFD169F287BDBE60001B884 /* Extensions */,
 				6DFD1665287B21080001B884 /* Assets.xcassets */,
 				6DFD1667287B21080001B884 /* LaunchScreen.storyboard */,
